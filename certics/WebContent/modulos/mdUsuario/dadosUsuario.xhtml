@@ -1,0 +1,74 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<style type="text/css">
+
+.fieldTitle {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 150px;
+	height: 30px;
+	text-align: right;
+	margin-right: 5px;
+	font-weight: bold; 
+	/*background-color: #F1EEE9;
+	margin-bottom: 5px;*/
+}
+
+.value {
+	display: inline-block;
+	float: left;
+}
+
+.field {
+	display: inline-block;
+	float: left;
+	width: 400px;
+}
+</style>
+
+<ui:decorate template="/pages/templates/default.xhtml">
+	<ui:define name="tpCenter">
+		<h:form id="cdUsuarioForm">
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			<p:dialog widgetVar="ppAlterarSenha" header="Alterar senha" modal="true" appendToBody="true" width="400" closeOnEscape="true">  
+				<br/>
+			    <p:outputLabel for="senhaAtual" value="Senha atual:" styleClass="fieldTitle" />
+				<p:password id="senhaAtual" value="#{cadastroUsuarioBean.senhaAtual}" styleClass="value" required="true" requiredMessage="Favor informar a senhaa atual."/>
+				<br />
+			    <p:outputLabel for="senha" value="Senha:" styleClass="fieldTitle" />
+				<p:password id="senha" value="#{cadastroUsuarioBean.senha}" styleClass="value" required="true" requiredMessage="Favor informar a senha."/>
+				<br />
+				<p:outputLabel for="confirmacaoSenha" value="Confimar senha:" styleClass="fieldTitle" />
+				<p:password id="confirmacaoSenha" value="#{cadastroUsuarioBean.confirmacaoSenha}" styleClass="value" required="true" requiredMessage="Favor informar a confirmação da senha."/>
+				<br style="clear: left;" />			
+				<br />
+				<p:commandButton value="Alterar" action="#{cadastroUsuarioBean.alterarSenha()}" update="cdUsuarioForm,messages" ajax="false" oncomplete="PF('ppAlterarSenha').hide();" />
+				<p:commandButton value="Cancelar" action="#{cadastroUsuarioBean.cancelar()}" update="cdUsuarioForm,messages" ajax="false" oncomplete="PF('ppAlterarSenha').hide();" />
+			</p:dialog>
+		
+			<p:fieldset legend="Dados do usuário" >
+				<br />
+				<br />
+				<br />
+				<p:outputLabel value="Nome:" styleClass="fieldTitle" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.nome}" styleClass="value" />
+				
+				<br />
+				<p:outputLabel value="E-mail:" styleClass="fieldTitle" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.mail}" styleClass="value" />
+	
+				<p:outputLabel value="Sexo:" styleClass="fieldTitle" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.sexo.descricao}" styleClass="value" />
+				<br />
+				<br style="clear: left;" />
+				<p:outputLabel value="" styleClass="fieldTitle" />
+				<p:commandLink value="Alterar senha" onclick="ppAlterarSenha.show()" styleClass="value" />
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:decorate>
+</html>

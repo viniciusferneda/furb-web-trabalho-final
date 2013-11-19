@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<style type="text/css">
+body {
+	background-color: #eeeeee;
+	font-size: 12px
+}
+
+html,body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%
+}
+
+.mainTitle {
+  vertical-align: middle !important;
+  font-size: 100px;
+}
+
+</style>
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CERTICS</title>
+	<link rel="stylesheet" href="#{request.contextPath}/themes/#{layoutBean.theme}/skin.css" />
+
+</h:head>
+
+<h:body>
+	<div align="center">
+		<p:layout style="min-width:1020px;max-width:1020px;min-height:800px">
+			<p:layoutUnit position="north" styleClass="ui-layout-unit-content" >
+				<p:layout style="min-height:450px;max-height:450px">
+					<p:layoutUnit position="west" size="60%" style="border: none;" >
+					<h1 class="mainTitle" >CERTICS</h1>
+					</p:layoutUnit>
+					<p:layoutUnit position="center" size="40%" style="border: none;">
+						<!-- <p:graphicImage height="280px" value="/resources/images/logo.png" /> -->
+					</p:layoutUnit>
+				</p:layout>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="20%" style="border: none;" styleClass="ui-layout-unit-content" >
+				<h:form>
+					<p:menu>  
+			            <p:menuitem value="Inicial" outcome="/pages/index.xhtml" ajax="false" icon="ui-icon-home"/>  
+			            <p:menuitem value="Sair" outcome="/pages/modulos/mdUsuario/login.xhtml" actionListener="#{sessaoBean.logout()}" ajax="false" icon="ui-icon-close" rendered="#{sessaoBean.logged}" />  
+				        <p:submenu label="Usuário">  
+				            <p:menuitem value="Cadastrar-se" outcome="/pages/modulos/mdUsuario/cdUsuario.xhtml" ajax="false" icon="ui-icon-document" rendered="#{not sessaoBean.logged}" />  
+				            <p:menuitem value="Login" outcome="/pages/modulos/mdUsuario/login.xhtml" ajax="false" icon="ui-icon-grip-diagonal-se" rendered="#{not sessaoBean.logged}" />
+				            <p:menuitem value="Meus dados" outcome="/pages/modulos/mdUsuario/dadosUsuario.xhtml" ajax="false" icon="ui-icon-person" rendered="#{sessaoBean.logged}" />
+				        </p:submenu> 
+				        <p:submenu label="Computadores" rendered="#{sessaoBean.logged}" >  
+				            <p:menuitem value="Novo computador" outcome="/pages/modulos/mdComputadores/cdComputador.xhtml" ajax="false" icon="ui-icon-calculator"/>  
+				            <p:menuitem value="Meus computadores" outcome="/pages/modulos/mdComputadores/vwComputadores.xhtml" ajax="false" icon="ui-icon-search"/>  
+				        </p:submenu> 
+				        <p:submenu label="Localizações" rendered="#{sessaoBean.logged}" >  
+				            <p:menuitem value="Localizações do computador" outcome="/pages/modulos/mdLocalizacao/vwLocalizacao.xhtml" ajax="false" icon="ui-icon-signal-diag"/>  
+				        </p:submenu> 
+				    </p:menu> 
+			   </h:form>
+			</p:layoutUnit>
+			<p:layoutUnit position="center" size="80%">
+				<ui:insert name="tpCenter">O que estiver aqui será substituido!</ui:insert>
+			</p:layoutUnit>
+
+		</p:layout>
+	</div>
+</h:body>
+</html>

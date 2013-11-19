@@ -1,0 +1,62 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<style type="text/css">
+.fieldTitle {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 150px;
+	height: 30px;
+	text-align: right;
+	margin-right: 5px;
+	/*background-color: #F1EEE9;
+	margin-bottom: 5px;*/
+}
+
+.field {
+	display: inline-block;
+	float: left;
+	width: 400px;
+}
+</style>
+
+<ui:decorate template="/pages/templates/default.xhtml">
+	<ui:define name="tpCenter">
+		<h:form id="cdUsuarioForm">
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			<p:fieldset legend="Dados do usuário" >
+				<br />
+				<br />
+				<br />
+	
+				<p:outputLabel for="nome" value="Nome:" styleClass="fieldTitle" />
+				<p:inputText id="nome" value="#{cadastroUsuarioBean.nome}" styleClass="field" required="true" requiredMessage="Favor informar um nome válido."/>
+				<br />
+				<p:outputLabel for="mail" value="E-mail:" styleClass="fieldTitle" />
+				<p:inputText id="mail" value="#{cadastroUsuarioBean.mail}" styleClass="field" required="true" requiredMessage="Favor informar um e-mail válido."/>
+	
+				<p:outputLabel for="sexo" value="Sexo:" styleClass="fieldTitle" />
+				<p:selectOneMenu value="#{cadastroUsuarioBean.sexo}" id="sexo" styleClass="field" required="true" requiredMessage="Favor informar o sexo." >
+					<f:selectItem itemLabel="" />
+					<f:selectItems var="o" value="#{cadastroUsuarioBean.sexoEnum}" itemLabel="#{o.descricao}" />
+				</p:selectOneMenu>
+				<br />
+				<p:outputLabel for="senha" value="Senha:" styleClass="fieldTitle" />
+				<p:password id="senha" value="#{cadastroUsuarioBean.senha}" styleClass="field" required="true" requiredMessage="Favor informar a senha."/>
+				<br />
+				<p:outputLabel for="confirmacaoSenha" value="Confimar senha:" styleClass="fieldTitle" />
+				<p:password id="confirmacaoSenha" value="#{cadastroUsuarioBean.confirmacaoSenha}" styleClass="field" required="true" requiredMessage="Favor informar a confirmação da senha."/>
+				<br style="clear: left;" />
+				<br />
+				<br />
+				<br />
+				<p:commandButton value="Salvar" action="#{cadastroUsuarioBean.salvar()}" update="cdUsuarioForm,messages" />
+				<p:commandButton value="Cancelar" action="#{cadastroUsuarioBean.cancelar()}" update="cdUsuarioForm,messages" />
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:decorate>
+</html>

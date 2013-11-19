@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<style type="text/css">
+
+.fieldTitle{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    height: 30px;
+    text-align: right;
+    margin-right: 5px;
+    /*background-color: #F1EEE9;
+	margin-bottom: 5px;*/
+}
+
+.field {
+  display: inline-block;
+  float: left;
+  width: 400px;
+}
+</style>
+<ui:decorate template="/pages/templates/default.xhtml">
+	<ui:define name="tpCenter">
+		<h:form id="loginForm">
+			<p:fieldset legend="Login" style="align: left !important;" >
+				<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+				<br/>
+				<br/>
+				<br/>
+				   
+				<p:outputLabel for="mail" value="E-mail:" styleClass="fieldTitle" /> <p:inputText id="mail" value="#{sessaoBean.email}" styleClass="field" />
+				
+				<br/>
+				<p:outputLabel for="senha" value="Senha:" styleClass="fieldTitle" /> <p:password id="senha" value="#{sessaoBean.senha}" styleClass="field" />
+				<br style="clear: left;" />
+				<br/>
+				<br/>
+				<br/>
+				<p:commandButton value="Entrar" action="#{sessaoBean.login()}" update="loginForm,messages" ajax="false" />
+				<p:commandButton value="Cancelar" action="#{sessaoBean.logout()}" update="loginForm,messages" ajax="false" />
+			</p:fieldset> 
+		</h:form>
+	</ui:define>
+</ui:decorate>
+</html>
