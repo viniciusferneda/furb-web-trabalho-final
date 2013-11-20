@@ -1,10 +1,9 @@
 package br.finf.model.rule;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Date;
 import java.util.List;
 
-import org.hibernate.Query;
+import javax.persistence.Query;
 
 import br.finf.dao.BasicDAO;
 import br.finf.dao.DBSession;
@@ -78,7 +77,7 @@ public class BasicBE<T extends AbstractEntity> extends BasicDAO {
 		
 		putParams(query, params);
 		
-		return query.list();
+		return query.getResultList();
 	}
 	
 	/**
@@ -105,7 +104,7 @@ public class BasicBE<T extends AbstractEntity> extends BasicDAO {
 	protected List<T> executeNamedQueryList(Query query, Object... params){
 		putParams(query, params);
 		
-		return query.list();
+		return query.getResultList();
 	}
 	
 	/**
@@ -142,28 +141,8 @@ public class BasicBE<T extends AbstractEntity> extends BasicDAO {
 	}
 
 	protected void putParams(Query query, Object[] params) {
-		int i = 0;
-		for (Object obj : params) {
-			if (obj.getClass() == Long.class){
-				query.setLong(i, (Long) obj);
-			}else if (obj.getClass() == Integer.class){
-				query.setInteger(i, (Integer) obj);
-			}else if (obj.getClass() == String.class){
-				query.setString(i, (String) obj);
-			}else if (obj.getClass() == Date.class){
-				query.setDate(i, (Date) obj);
-			}else if (obj.getClass() == Float.class){
-				query.setFloat(i, (Float) obj);
-			}else if (obj.getClass() == Double.class){
-				query.setDouble(i, (Double) obj);
-			}else if (obj.getClass() == Byte.class){
-				query.setByte(i, (Byte) obj);
-			}else if (obj.getClass() == Character.class){
-				query.setCharacter(i, (Character) obj);
-			}else{
-				throw new IllegalArgumentException("A class " + obj.getClass() + " do parametro : " + obj + " não é válido!");
-			}
-			i++;
+		for (int i = 0; i < params.length; i++) {
+			query.setParameter(i, params[i]);
 		}
 	}
 
@@ -202,7 +181,7 @@ public class BasicBE<T extends AbstractEntity> extends BasicDAO {
 		
 		putParams(q, query.getParams().toArray(CLEAR_OBJECT_ARRAY));
 		
-		return q.list();
+		return q.getResultList();
 	}
 	
 	/**

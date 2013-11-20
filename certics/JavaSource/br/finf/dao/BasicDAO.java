@@ -1,6 +1,6 @@
 package br.finf.dao;
 
-import org.hibernate.Query;
+import javax.persistence.Query;
 
 import br.finf.dao.entity.AbstractEntity;
 

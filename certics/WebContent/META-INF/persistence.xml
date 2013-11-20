@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="CerticsDS" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source></jta-data-source>
+		
+		<class>br.coop.unimed.ajius.entidade.A550Entity</class>
+		<class>br.com.dynamix.undo.historico.entity.DadoHistoricoEntity</class>
+		<class>br.com.dynamix.undo.historico.entity.HistoricoEntity</class>
+		
+		<properties>
+			<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+			<property name="hibernate.connection.username">root</property>
+			<property name="hibernate.connection.password">teste</property>
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/certics</property>
+			
+			<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+			
+			<property name="hibernate.show_sql">true</property>
+			<property name="hibernate.use_outer_join">true</property>
+			<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+			<!-- <property name="hibernate.cache.use_query_cache">true</property> -->
+			<property name="hibernate.connection.autoReconnect">true</property>
+			<property name="hibernate.connection.autocommit">false</property>  
+			<property name="hibernate.connection.autoReconnectForPools">true</property>
+			<property name="hibernate.connection.is-connection-validation-required">true</property>
+			
+			<property name="hibernate.hbm2ddl.auto" >update</property>
+		</properties>
+	</persistence-unit>
+	
+</persistence>

@@ -22,28 +22,6 @@ public class FacadeProvider {
 		return INSTANCE;
 	}
 
-	/*public <T extends AbstractFacade> T provide(Class<T> clazz) {
-		
-		T inst = verifyInstance(clazz);
-		if (inst != null) {
-			return inst;
-		}
-		
-		try {
-			Constructor<T> constructor = clazz.getConstructor(DBSession.class);
-			return constructor.newInstance(SessionProvider.get().provide());
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-			throw new IllegalArgumentException("No such contructor with DBSession param.");
-		} catch (SecurityException e) {
-			e.printStackTrace();
-			throw new IllegalArgumentException("No such contructor with DBSession param.");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new IllegalArgumentException("Problem on execute contructor.");
-		}
-	}*/
-	
 	@SuppressWarnings("unchecked")
 	public <T extends AbstractFacade> T provide(Class<T> clazz) {
 		return (T) create(clazz, SessionProvider.get().provide());
@@ -57,7 +35,7 @@ public class FacadeProvider {
 	private Object create(Class<?> rule, DBSession session) {
 		Enhancer e = new Enhancer();
 		e.setSuperclass(rule);
-		e.setCallback(new MyInterceptor(session));
+		e.setCallback(new MyInterceptor());
 		Object instance = e.create(new Class[] { DBSession.class }, new Object[] { session });
 		return instance;
 	}
@@ -74,36 +52,41 @@ public class FacadeProvider {
 	 */
 	private static class MyInterceptor implements MethodInterceptor {
 		
-		private final DBSession session;
-
-		public MyInterceptor(DBSession session) {
-			this.session = session;
-		}
-		
 		public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
 			
-			Object result = null;
+			
+			AbstractFacade facade = (AbstractFacade) object;
+			
 			if (method.getName().equals("getBE") || method.getName().equals("getAS") || method.getName().equals("getDAO")) {
-				result = methodProxy.invokeSuper(object, args);
+				return methodProxy.invokeSuper(object, args);
 			} else {
-				// Inicia uma transacao com o banco de dados.
-				session.beginTransaction();
-				System.out.println("Iniciou a sessão...");
+				DBSession session = facade.getSession();
+				
+				//abre a conexao
+				session.openEntityManager();
+				System.out.println("Iniciou a sessao...");
 				try {
-					// invoca o metodo e executa.
-					result = methodProxy.invokeSuper(object, args);
-					// commita as alteracoes no banco de dados.
-					session.commitTransaction();
-					System.out.println("Comitou a sessão...");
-				} catch (Throwable t) {
-					// caso ocorra algum erro durante o processamento, irá garantir
-					// que nenhum alteracao realizada permaneca no banco.
-					session.rollcack();
-					System.out.println("Rollback da sessão...");
-					throw t;
+					// Inicia uma transacao com o banco de dados.
+					session.beginTransaction();
+					System.out.println("Iniciou a transacao...");
+					try {
+						// invoca o metodo e executa.
+						Object result = methodProxy.invokeSuper(object, args);
+						
+						// commita as alteracoes no banco de dados.
+						session.commitTransaction();
+						System.out.println("Comitou a sessão...");
+						return result;
+					} catch (Throwable t) {
+						// caso ocorra algum erro durante o processamento, irá garantir que nenhum alteracao realizada permaneca no banco.
+						session.rollcackTransaction();
+						System.out.println("Rollback da sessão...");
+						throw t;
+					}
+				} finally {
+					session.closeEntityManager();
 				}
 			}
-			return result;
 		}
 
 	}

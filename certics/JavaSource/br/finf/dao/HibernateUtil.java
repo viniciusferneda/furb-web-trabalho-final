@@ -1,34 +1,30 @@
 package br.finf.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  * Classe utilitária para obter a {@link SessionFactory} do hibernate.
  * 
- * @author thiago.teixeira
  */
-@SuppressWarnings("deprecation")
-class HibernateUtil {
+public class HibernateUtil {
 
-	private static final SessionFactory sessionFactory;
+	private static EntityManagerFactory entityManagerFactory;
 
-	static {
-		try {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
-		} catch (Throwable e) {
-			System.err.println("Initial SessionFactory creation failed.");
-			e.printStackTrace();
-			throw new ExceptionInInitializerError(e);
+	public static EntityManager getEntityManager(String dsName) {
+
+		if ((entityManagerFactory == null) || !entityManagerFactory.isOpen()) {
+			try {
+				entityManagerFactory = Persistence.createEntityManagerFactory(dsName);
+			} catch (Exception e) {
+				System.out.println(e);
+				e.printStackTrace();
+			}
 		}
+		return entityManagerFactory.createEntityManager();
 	}
 
-	/**
-	 * Obtém a session factory.
-	 * 
-	 * @return a session factory.
-	 */
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
 }

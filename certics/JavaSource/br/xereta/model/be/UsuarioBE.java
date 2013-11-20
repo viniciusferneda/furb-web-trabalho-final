@@ -2,7 +2,7 @@ package br.xereta.model.be;
 
 import java.util.List;
 
-import org.hibernate.Query;
+import javax.persistence.Query;
 
 import br.finf.dao.DBSession;
 import br.finf.model.rule.BasicBE;
@@ -20,7 +20,7 @@ public class UsuarioBE extends BasicBE<UsuarioEntity> {
 		
 		putParams(q, new Object[]{ mail });
 		
-		List list = q.list();
+		List list = q.getResultList();
 		if (list != null && !list.isEmpty()){
 			Number count = (Number) list.get(0);
 			return count.longValue() > 0;

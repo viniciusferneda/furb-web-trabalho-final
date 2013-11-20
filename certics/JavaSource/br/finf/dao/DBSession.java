@@ -1,72 +1,74 @@
 package br.finf.dao;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.finf.dao.entity.AbstractEntity;
 
 /**
  * Classe que mantém a sessão com o banco de dados para o Hibernate.
  * 
- * @author thiago.teixeira
  */
 public class DBSession {
 
-	private Session session;
+	private EntityManager entityManager;
 
 	DBSession() {
 	}
 	
-	private Session getSession() {
-		if (session == null){
+	private EntityManager getEntityManager() {
+		if (entityManager == null){
 			throw new IllegalStateException("Sessão não iniciada!");
 		}
-		if (!session.isOpen()) {
-			session.beginTransaction();
-		}
-		return session;
+		return entityManager;
 	}
 
+	public void openEntityManager() {
+		if(entityManager != null) {
+			throw new IllegalStateException("Entity Manager já iniciado!");
+		}
+		entityManager = HibernateUtil.getEntityManager("certics");
+	}
+	
 	public void beginTransaction() {
-		session = HibernateUtil.getSessionFactory().openSession();
-		getSession().beginTransaction();
+		if(entityManager.getTransaction().isActive()) {
+			throw new IllegalStateException("Transação já iniciada!");
+		}
+		entityManager.getTransaction().begin();
 	}
 
 	public void commitTransaction() {
-		try {
-			if (session != null && session.isOpen() && session.getTransaction().isActive()) {
-				getSession().getTransaction().commit();
-			}
-		} finally {
-			closeSession();
+		if(!entityManager.getTransaction().isActive()) {
+			throw new IllegalStateException("Não possui transação ativa!");
 		}
+		entityManager.getTransaction().commit();
 	}
 
-	public void rollcack() {
-		try {
-			getSession().getTransaction().rollback();
-		} finally {
-			closeSession();
+	public void rollcackTransaction() {
+		if(!entityManager.getTransaction().isActive()) {
+			throw new IllegalStateException("Não possui transação ativa!");
 		}
+		entityManager.getTransaction().rollback();
 	}
 	
-	private void closeSession() {
-		if (session != null && session.isOpen()) {
-			session.close();
+	public void closeEntityManager() {
+		if(entityManager == null) {
+			throw new IllegalStateException("Não possui Entity Manager iniciado!");
 		}
-		session = null;
+		entityManager.close();
+		entityManager = null;
 	}
 
 	public void save(AbstractEntity entity) {
-		getSession().save(entity);
+		getEntityManager().persist(entity);
 	}
 
 	protected Query newQuery(String query) {
-		return getSession().createQuery(query);
+		return getEntityManager().createQuery(query);
 	}
 	
 	protected Query loadQuery(Class<? extends AbstractEntity> entity, String name){
-		return getSession().getNamedQuery(entity.getSimpleName() + "." + name);
+		return getEntityManager().createNamedQuery(entity.getSimpleName() + "." + name);
 	}
 
 }

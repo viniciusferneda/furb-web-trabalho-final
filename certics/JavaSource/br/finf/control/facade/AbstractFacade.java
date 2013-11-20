@@ -69,5 +69,8 @@ public abstract class AbstractFacade {
 		}
 	}
 
+	DBSession getSession() {
+		return session;
+	}
 
 }
