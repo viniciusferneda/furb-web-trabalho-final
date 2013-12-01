@@ -7,28 +7,27 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source></jta-data-source>
 		
-		<class>br.coop.unimed.ajius.entidade.A550Entity</class>
-		<class>br.com.dynamix.undo.historico.entity.DadoHistoricoEntity</class>
-		<class>br.com.dynamix.undo.historico.entity.HistoricoEntity</class>
+		<class>br.certics.model.entity.UsuarioEntity</class>
+		<class>br.certics.model.entity.AreaCompetenciaEntity</class>
+		<class>br.certics.model.entity.ResultadoEsperadoEntity</class>
 		
 		<properties>
-			<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-			<property name="hibernate.connection.username">root</property>
-			<property name="hibernate.connection.password">teste</property>
-			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/certics</property>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="root"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/certics"/>
 			
-			<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
 			
-			<property name="hibernate.show_sql">true</property>
-			<property name="hibernate.use_outer_join">true</property>
-			<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
-			<!-- <property name="hibernate.cache.use_query_cache">true</property> -->
-			<property name="hibernate.connection.autoReconnect">true</property>
-			<property name="hibernate.connection.autocommit">false</property>  
-			<property name="hibernate.connection.autoReconnectForPools">true</property>
-			<property name="hibernate.connection.is-connection-validation-required">true</property>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.use_outer_join" value="true"/>
+			<property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JDBCTransactionFactory"/>
+			<property name="hibernate.connection.autoReconnect" value="true"/>
+			<property name="hibernate.connection.autocommit" value="false"/>  
+			<property name="hibernate.connection.autoReconnectForPools" value="true"/>
+			<property name="hibernate.connection.is-connection-validation-required" value="true"/>
 			
-			<property name="hibernate.hbm2ddl.auto" >update</property>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 	

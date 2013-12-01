@@ -1,4 +1,4 @@
-package br.xereta.model.helper;
+package br.certics.model.helper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

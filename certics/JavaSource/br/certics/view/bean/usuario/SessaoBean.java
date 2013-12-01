@@ -1,14 +1,14 @@
-package br.xereta.view.bean.usuario;
+package br.certics.view.bean.usuario;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import br.certics.controller.facade.UsuarioFacade;
+import br.certics.model.entity.UsuarioEntity;
+import br.certics.view.bean.ApplicationContextBean;
+import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
-import br.xereta.controller.facade.UsuarioFacade;
-import br.xereta.model.entity.UsuarioEntity;
-import br.xereta.view.bean.ApplicationContextBean;
-import br.xereta.view.bean.MessageUtils;
 
 @SessionScoped
 @ManagedBean(name = "sessaoBean")
@@ -73,7 +73,7 @@ public class SessaoBean {
 	
 	public String getUserName() {
 		if (isLogged()) {
-			return applicationContext.getUsuarioLogado().getNome(); 
+			return applicationContext.getUsuarioLogado().getPessoaFisica().getNome(); 
 		}
 		return "";
 	}

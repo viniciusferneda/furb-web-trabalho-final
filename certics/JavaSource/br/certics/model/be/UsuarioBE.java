@@ -1,12 +1,12 @@
-package br.xereta.model.be;
+package br.certics.model.be;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
+import br.certics.model.entity.UsuarioEntity;
 import br.finf.dao.DBSession;
 import br.finf.model.rule.BasicBE;
-import br.xereta.model.entity.UsuarioEntity;
 
 public class UsuarioBE extends BasicBE<UsuarioEntity> {
 

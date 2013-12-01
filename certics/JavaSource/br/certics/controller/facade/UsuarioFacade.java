@@ -1,12 +1,12 @@
-package br.xereta.controller.facade;
+package br.certics.controller.facade;
 
 import java.util.List;
 
+import br.certics.model.be.UsuarioBE;
+import br.certics.model.entity.UsuarioEntity;
 import br.finf.control.facade.AbstractFacade;
 import br.finf.dao.DBSession;
 import br.finf.filter.QueryBuilder;
-import br.xereta.model.be.UsuarioBE;
-import br.xereta.model.entity.UsuarioEntity;
 
 public class UsuarioFacade extends AbstractFacade {
 

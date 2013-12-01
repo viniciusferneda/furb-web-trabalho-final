@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
+import br.certics.model.entity.UsuarioEntity;
 import br.finf.dao.entity.AbstractEntity;
 
 @MappedSuperclass

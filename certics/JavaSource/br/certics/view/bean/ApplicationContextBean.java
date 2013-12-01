@@ -1,9 +1,9 @@
-package br.xereta.view.bean;
+package br.certics.view.bean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import br.xereta.model.entity.UsuarioEntity;
+import br.certics.model.entity.UsuarioEntity;
 
 @SessionScoped
 @ManagedBean(name = "applicationContextBean")

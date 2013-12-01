@@ -5,11 +5,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import br.certics.view.bean.ApplicationContextBean;
+import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
 import br.xereta.controller.facade.ComputadorFacade;
 import br.xereta.model.entity.ComputadorEntity;
-import br.xereta.view.bean.ApplicationContextBean;
-import br.xereta.view.bean.MessageUtils;
 
 @ViewScoped
 @ManagedBean(name = "cadastroComputadorBean")

@@ -8,13 +8,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import br.certics.view.bean.ApplicationContextBean;
 import br.finf.control.facade.FacadeProvider;
 import br.finf.filter.QueryBuilder;
 import br.xereta.controller.facade.ComputadorFacade;
 import br.xereta.controller.facade.LocalizacaoFacade;
 import br.xereta.model.entity.ComputadorEntity;
 import br.xereta.model.entity.LocalizacaoEntity;
-import br.xereta.view.bean.ApplicationContextBean;
 
 @ViewScoped
 @ManagedBean(name = "consultaLocalizacaoBean")

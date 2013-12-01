@@ -1,6 +1,6 @@
-package br.xereta.model.enums;
+package br.certics.model.enums;
 
-public enum SexoEnum {
+public enum Sexo {
 
 	/* Masculino */
 	MASCULINO("Masculino"),
@@ -9,7 +9,7 @@ public enum SexoEnum {
 
 	private String descricao;
 
-	private SexoEnum(String descricao) {
+	private Sexo(String descricao) {
 		this.descricao = descricao;
 	}
 

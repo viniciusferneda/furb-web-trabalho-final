@@ -1,24 +1,24 @@
-package br.xereta.view.bean.usuario;
+package br.certics.view.bean.usuario;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import br.certics.controller.facade.UsuarioFacade;
+import br.certics.model.entity.UsuarioEntity;
+import br.certics.model.enums.Sexo;
+import br.certics.view.bean.ApplicationContextBean;
+import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
-import br.xereta.controller.facade.UsuarioFacade;
-import br.xereta.model.entity.UsuarioEntity;
-import br.xereta.model.enums.SexoEnum;
-import br.xereta.view.bean.ApplicationContextBean;
-import br.xereta.view.bean.MessageUtils;
 
 @ViewScoped
 @ManagedBean(name = "cadastroUsuarioBean")
 public class CadastroUsuarioBean {
 
 	private String nome;
-	private SexoEnum sexo = null;
-	private String mail;
+	private Sexo sexo = null;
+	private String email;
 	private String senhaAtual;
 	private String senha;
 	private String confirmacaoSenha;
@@ -39,20 +39,20 @@ public class CadastroUsuarioBean {
 		this.nome = nome;
 	}
 
-	public SexoEnum getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(SexoEnum sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 
 	public String getMail() {
-		return mail;
+		return email;
 	}
 
 	public void setMail(String mail) {
-		this.mail = mail;
+		this.email = mail;
 	}
 	
 	public String getSenhaAtual() {
@@ -79,8 +79,8 @@ public class CadastroUsuarioBean {
 		this.confirmacaoSenha = confirmacaoSenha;
 	}
 
-	public SexoEnum[] getSexoEnum() {
-		return SexoEnum.values();
+	public Sexo[] getSexoEnum() {
+		return Sexo.values();
 	}
 	
 	public ApplicationContextBean getApplicationContext() {
@@ -94,7 +94,7 @@ public class CadastroUsuarioBean {
 	public void salvar() {
 		UsuarioFacade facade = FacadeProvider.get().provide(UsuarioFacade.class);
 		
-		if (facade.isEmailUsado(mail)) {
+		if (facade.isEmailUsado(email)) {
 			MessageUtils.addWarningMessage("O e-mail informado já está cadastrado, favor informar outro e-mail.");
 			return;
 		}
@@ -105,9 +105,7 @@ public class CadastroUsuarioBean {
 		}
 		
 		UsuarioEntity usuario = new UsuarioEntity();
-		usuario.setNome(nome);
-		usuario.setMail(mail);
-		usuario.setSexo(sexo);
+		usuario.setEmail(email);
 		usuario.setSenha(senha);
 		try {
 			facade.salvar(usuario);
@@ -126,7 +124,7 @@ public class CadastroUsuarioBean {
 	private void limpar() {
 		nome = null;
 		sexo = null;
-		mail = null;
+		email = null;
 		senha = null;
 		confirmacaoSenha = null;
 	}

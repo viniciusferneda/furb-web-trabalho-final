@@ -1,4 +1,4 @@
-package br.xereta.view.bean;
+package br.certics.view.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
