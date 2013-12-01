@@ -1,6 +1,6 @@
 package br.certics.model.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -24,11 +24,11 @@ public class OrganizacaoSolicitante extends AbstractEntity{
 	@Column(name="OSO_NOME", nullable=false)
 	private String nome;
 	
-	@Column(name="OSO_CPF", nullable=false)
-	private String cpf;
+	@Column(name="OSO_CNPJ", nullable=false)
+	private String cnpj;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="organizacaoSolicitante", targetEntity=SoftwareEntity.class)
-	private Set<SoftwareEntity> software;
+	private List<SoftwareEntity> software;
 	
 	public Long getId() {
 		return id;
@@ -46,19 +46,19 @@ public class OrganizacaoSolicitante extends AbstractEntity{
 		this.nome = nome;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
-	public Set<SoftwareEntity> getSoftware() {
+	public List<SoftwareEntity> getSoftware() {
 		return software;
 	}
 
-	public void setSoftware(Set<SoftwareEntity> software) {
+	public void setSoftware(List<SoftwareEntity> software) {
 		this.software = software;
 	}
 	

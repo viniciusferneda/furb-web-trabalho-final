@@ -11,7 +11,7 @@ import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
 
 @ViewScoped
-@ManagedBean(name = "areaCompetenciaBean")
+@ManagedBean(name="areaCompetenciaBean")
 public class AreaCompetenciaBean {
 
 	private String perguntaChave;

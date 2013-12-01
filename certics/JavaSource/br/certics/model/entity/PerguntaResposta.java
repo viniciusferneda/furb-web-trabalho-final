@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import br.certics.model.enums.EscalaPontuacao;
+import br.certics.model.enums.EscalaPontuacaoRE;
 import br.finf.dao.entity.AbstractEntity;
 
 @MappedSuperclass
@@ -35,8 +35,8 @@ public class PerguntaResposta extends AbstractEntity{
 	private String evidencia;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "PRE_PONT", nullable=false)
-	private EscalaPontuacao pontuacao;
+	@Column(name = "PRE_EPRE", nullable=false)
+	private EscalaPontuacaoRE escalaPontuacaoRE;
 
 	public Long getId() {
 		return id;
@@ -70,12 +70,12 @@ public class PerguntaResposta extends AbstractEntity{
 		this.evidencia = evidencia;
 	}
 
-	public EscalaPontuacao getPontuacao() {
-		return pontuacao;
+	public EscalaPontuacaoRE getEscalaPontuacaoRE() {
+		return escalaPontuacaoRE;
 	}
 
-	public void setPontuacao(EscalaPontuacao pontuacao) {
-		this.pontuacao = pontuacao;
+	public void setEscalaPontuacaoRE(EscalaPontuacaoRE escalaPontuacaoRE) {
+		this.escalaPontuacaoRE = escalaPontuacaoRE;
 	}
 
 }

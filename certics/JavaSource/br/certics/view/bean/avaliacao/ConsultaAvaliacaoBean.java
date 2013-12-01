@@ -1,4 +1,4 @@
-package br.certics.view.bean.areacompetencia;
+package br.certics.view.bean.avaliacao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +8,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import br.certics.controller.facade.AreaCompetenciaFacade;
-import br.certics.model.entity.AreaCompetenciaEntity;
+import br.certics.controller.facade.AvaliacaoFacade;
+import br.certics.model.entity.AvaliacaoEntity;
 import br.certics.view.bean.ApplicationContextBean;
 import br.finf.control.facade.FacadeProvider;
 
 @ViewScoped
-@ManagedBean(name="consultaAreaCompetenciaBean")
-public class ConsultaAreaCompetenciaBean {
+@ManagedBean(name="consultaAvaliacaoBean")
+public class ConsultaAvaliacaoBean {
 
-	private final List<AreaCompetenciaEntity> lAreaCompetencia = new ArrayList<AreaCompetenciaEntity>();
+	private final List<AvaliacaoEntity> lAvaliacao = new ArrayList<AvaliacaoEntity>();
 
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
@@ -35,14 +35,14 @@ public class ConsultaAreaCompetenciaBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public List<AreaCompetenciaEntity> getlAreaCompetencia() {
-		return lAreaCompetencia;
+	public List<AvaliacaoEntity> getlAvaliacao() {
+		return lAvaliacao;
 	}
 
 	public void filtrar() {
-		AreaCompetenciaFacade facade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
-		lAreaCompetencia.clear();
-		lAreaCompetencia.addAll(facade.selectAll());
+		AvaliacaoFacade facade = FacadeProvider.get().provide(AvaliacaoFacade.class);
+		lAvaliacao.clear();
+		lAvaliacao.addAll(facade.selectAll());
 	}
 	
 }

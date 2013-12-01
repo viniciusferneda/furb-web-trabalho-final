@@ -1,9 +1,7 @@
 package br.certics.model.enums;
 
-public enum EscalaPontuacao {
+public enum EscalaPontuacaoRE {
 
-	SIM("Sim"),
-	NAO("Não"),
 	F("Completamente atendido"),
 	L("Largamente atendido"),
 	P("Parcialmente atendido"),
@@ -11,7 +9,7 @@ public enum EscalaPontuacao {
 	
 	private String descricao;
 
-	private EscalaPontuacao(String descricao) {
+	private EscalaPontuacaoRE(String descricao) {
 		this.descricao = descricao;
 	}
 

@@ -1,6 +1,6 @@
 package br.certics.model.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -34,7 +34,7 @@ public class ResultadoEsperado extends AbstractEntity{
 	private AreaCompetenciaEntity areaCompetencia;
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="resultadoEsperado", targetEntity=PerguntaRespostaEntity.class)
-	private Set<PerguntaRespostaEntity> perguntaResposta;
+	private List<PerguntaRespostaEntity> perguntaResposta;
 	
 	public Long getId() {
 		return id;
@@ -68,11 +68,11 @@ public class ResultadoEsperado extends AbstractEntity{
 		this.areaCompetencia = areaCompetencia;
 	}
 
-	public Set<PerguntaRespostaEntity> getPerguntaResposta() {
+	public List<PerguntaRespostaEntity> getPerguntaResposta() {
 		return perguntaResposta;
 	}
 
-	public void setPerguntaResposta(Set<PerguntaRespostaEntity> perguntaResposta) {
+	public void setPerguntaResposta(List<PerguntaRespostaEntity> perguntaResposta) {
 		this.perguntaResposta = perguntaResposta;
 	}
 	

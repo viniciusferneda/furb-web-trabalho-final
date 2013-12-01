@@ -1,8 +1,10 @@
 package br.certics.model.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
+import br.certics.model.enums.EscalaPontuacaoAva;
 import br.finf.dao.entity.AbstractEntity;
 
 @MappedSuperclass
@@ -30,9 +33,13 @@ public class Avaliacao extends AbstractEntity{
 	@ManyToOne(fetch=FetchType.LAZY, targetEntity=SoftwareEntity.class)
 	@JoinColumn(name="AVA_SOFID", nullable=false)
 	private SoftwareEntity software;
-	
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "AVA_EPAVA", nullable=false)
+	private EscalaPontuacaoAva escalaPontuacaoAva;
+
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="avaliacao", targetEntity=PerguntaRespostaEntity.class)
-	private Set<PerguntaRespostaEntity> perguntaResposta;
+	private List<PerguntaRespostaEntity> perguntaResposta;
 
 	public Long getId() {
 		return id;
@@ -58,11 +65,19 @@ public class Avaliacao extends AbstractEntity{
 		this.software = software;
 	}
 
-	public Set<PerguntaRespostaEntity> getPerguntaResposta() {
+	public EscalaPontuacaoAva getEscalaPontuacaoAva() {
+		return escalaPontuacaoAva;
+	}
+
+	public void setEscalaPontuacaoAva(EscalaPontuacaoAva escalaPontuacaoAva) {
+		this.escalaPontuacaoAva = escalaPontuacaoAva;
+	}
+
+	public List<PerguntaRespostaEntity> getPerguntaResposta() {
 		return perguntaResposta;
 	}
 
-	public void setPerguntaResposta(Set<PerguntaRespostaEntity> perguntaResposta) {
+	public void setPerguntaResposta(List<PerguntaRespostaEntity> perguntaResposta) {
 		this.perguntaResposta = perguntaResposta;
 	}
 	
