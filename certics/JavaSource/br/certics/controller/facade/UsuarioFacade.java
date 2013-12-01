@@ -18,8 +18,8 @@ public class UsuarioFacade extends AbstractFacade {
 		return getBE(UsuarioBE.class).executeQueryList(query);
 	}
 
-	public boolean isEmailUsado(String mail) {
-		return getBE(UsuarioBE.class).isEmailUsado(mail);
+	public boolean isEmailUsado(String email) {
+		return getBE(UsuarioBE.class).isEmailUsado(email);
 	}
 
 	public void salvar(UsuarioEntity usuario) {

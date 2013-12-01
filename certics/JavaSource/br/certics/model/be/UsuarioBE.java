@@ -15,10 +15,10 @@ public class UsuarioBE extends BasicBE<UsuarioEntity> {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public boolean isEmailUsado(String mail) {
-		Query q = loadQuery("selectCountByMail");
+	public boolean isEmailUsado(String email) {
+		Query q = loadQuery("selectCountByEmail");
 		
-		putParams(q, new Object[]{ mail });
+		putParams(q, new Object[]{ email });
 		
 		List list = q.getResultList();
 		if (list != null && !list.isEmpty()){

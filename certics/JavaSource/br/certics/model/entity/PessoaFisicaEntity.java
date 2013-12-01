@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name="PES_ID", sequenceName="PES_ID")
 @NamedQueries({ 
 	@NamedQuery(name="PessoaFisicaEntity.selectAll", query="select obj from PessoaFisicaEntity obj "),
-	@NamedQuery(name="PessoaFisicaEntity.selectCountBySexo", query="select count(obj) from PessoaFisicaEntity obj where obj.sexo like ? ")
+	@NamedQuery(name="PessoaFisicaEntity.selectCountByCPF", query="select count(obj) from PessoaFisicaEntity obj where obj.cpf like ? ")
 	})
 public class PessoaFisicaEntity extends PessoaFisica{
 

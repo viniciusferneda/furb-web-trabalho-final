@@ -7,9 +7,14 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source></jta-data-source>
 		
-		<class>br.certics.model.entity.UsuarioEntity</class>
 		<class>br.certics.model.entity.AreaCompetenciaEntity</class>
+		<class>br.certics.model.entity.AvaliacaoEntity</class>
+		<class>br.certics.model.entity.OrganizacaoSolicitanteEntity</class>
+		<class>br.certics.model.entity.PerguntaRespostaEntity</class>
+		<class>br.certics.model.entity.PessoaFisicaEntity</class>
 		<class>br.certics.model.entity.ResultadoEsperadoEntity</class>
+		<class>br.certics.model.entity.SoftwareEntity</class>
+		<class>br.certics.model.entity.UsuarioEntity</class>
 		
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

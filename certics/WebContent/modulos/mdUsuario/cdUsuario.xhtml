@@ -35,8 +35,11 @@
 				<p:outputLabel for="nome" value="Nome:" styleClass="fieldTitle" />
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.nome}" styleClass="field" required="true" requiredMessage="Favor informar um nome válido."/>
 				<br />
-				<p:outputLabel for="mail" value="E-mail:" styleClass="fieldTitle" />
-				<p:inputText id="mail" value="#{cadastroUsuarioBean.mail}" styleClass="field" required="true" requiredMessage="Favor informar um e-mail válido."/>
+				<p:outputLabel for="cpf" value="CPF:" styleClass="fieldTitle" />
+				<p:inputText id="nome" value="#{cadastroUsuarioBean.cpf}" styleClass="field" required="true" requiredMessage="Favor informar um cpf válido."/>
+				<br />
+				<p:outputLabel for="email" value="E-mail:" styleClass="fieldTitle" />
+				<p:inputText id="email" value="#{cadastroUsuarioBean.email}" styleClass="field" required="true" requiredMessage="Favor informar um e-mail válido."/>
 	
 				<p:outputLabel for="sexo" value="Sexo:" styleClass="fieldTitle" />
 				<p:selectOneMenu value="#{cadastroUsuarioBean.sexo}" id="sexo" styleClass="field" required="true" requiredMessage="Favor informar o sexo." >

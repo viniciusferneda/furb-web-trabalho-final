@@ -55,14 +55,18 @@
 				<br />
 				<br />
 				<p:outputLabel value="Nome:" styleClass="fieldTitle" />
-				<p:outputLabel value="#{sessaoBean.usuarioLogado.nome}" styleClass="value" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.pessoaFisica.nome}" styleClass="value" />
+				
+				<br />
+				<p:outputLabel value="Cpf:" styleClass="fieldTitle" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.pessoaFisica.cpf}" styleClass="value" />
 				
 				<br />
 				<p:outputLabel value="E-mail:" styleClass="fieldTitle" />
-				<p:outputLabel value="#{sessaoBean.usuarioLogado.mail}" styleClass="value" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.email}" styleClass="value" />
 	
 				<p:outputLabel value="Sexo:" styleClass="fieldTitle" />
-				<p:outputLabel value="#{sessaoBean.usuarioLogado.sexo.descricao}" styleClass="value" />
+				<p:outputLabel value="#{sessaoBean.usuarioLogado.pessoaFisica.sexo.descricao}" styleClass="value" />
 				<br />
 				<br style="clear: left;" />
 				<p:outputLabel value="" styleClass="fieldTitle" />

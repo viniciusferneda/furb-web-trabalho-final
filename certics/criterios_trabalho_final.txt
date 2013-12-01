@@ -1,0 +1,19 @@
+Os critérios funcionais de avaliação do trabalho final são:
+- Utilizar JFS2 e alguma biblioteca de componentes (Primefaces por exemplo)
+- Ter uma página de template do projeto
+- Ter um dataTable com dados filtrados por um campo texto
+- Utilizar JPA2 com hibernate ou eclipselink
+- Ter as classes mapeadas usando nomes específicos de tabela e colunas (@Table e @Column)
+- Ter pelo menos uma relação entre classes (ManyToOne ou OneToMany)
+- Ter a arquitetura da aplicação dividida em três camadas implementando pelo menos uma camada de abstração de acesso aos dados (DAO)
+- Ter controle de acesso e segurança funcional
+- Ter 2 ou mais níveis de acesso (Administrador e Usuário)
+- Gerar informações via webservice ou acessar um webservice trazendo informações para sua aplicação
+
+Além desses critérios, cada um deles será analisado através dos critérios qualitativos definidos no plano de ensino, que são: 
+- Raciocínio lógico; 
+- Habilidade Técnica; 
+- Uso de boas práticas; 
+- Capacidade de interpretar e resolver problemas; 
+- Capacidade de abstração; 
+- Coerência e lógica das especificações realizadas.
