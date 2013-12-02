@@ -14,12 +14,39 @@ import br.finf.control.facade.FacadeProvider;
 @ManagedBean(name="areaCompetenciaBean")
 public class AreaCompetenciaBean {
 
+	private String titulo;
 	private String perguntaChave;
 	private String descricao;
 
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
+	public void salvar() {
+		AreaCompetenciaEntity areaCompetencia = new AreaCompetenciaEntity();
+		areaCompetencia.setTitulo(titulo);
+		areaCompetencia.setPerguntaChave(perguntaChave);
+		areaCompetencia.setDescricao(descricao);
+		
+		AreaCompetenciaFacade facade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
+		facade.salvar(areaCompetencia);
+		
+		MessageUtils.addInfoMessage("Área de competência salvo com sucesso!");
+		limpar();
+	}
+	
+	public void limpar() {
+		descricao = null;
+		perguntaChave = null;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public String getPerguntaChave() {
 		return perguntaChave;
 	}
@@ -43,23 +70,5 @@ public class AreaCompetenciaBean {
 	public void setApplicationContext(ApplicationContextBean applicationContext) {
 		this.applicationContext = applicationContext;
 	}
-	
-	public void salvar() {
-		AreaCompetenciaEntity areaCompetencia = new AreaCompetenciaEntity();
-		areaCompetencia.setPerguntaChave(perguntaChave);
-		areaCompetencia.setDescricao(descricao);
-		
-		AreaCompetenciaFacade facade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
-		facade.salvar(areaCompetencia);
-		
-		MessageUtils.addInfoMessage("Área de competência salvo com sucesso!");
-		limpar();
-	}
-	
-	public void limpar() {
-		descricao = null;
-		perguntaChave = null;
-	}
-	
-	
+
 }

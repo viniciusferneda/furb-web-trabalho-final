@@ -21,6 +21,9 @@ public class AreaCompetencia extends AbstractEntity{
 	@Column(name="ACO_ID", nullable=false)
 	private Long id;
 	
+	@Column(name="ACO_TIT", nullable=false)
+	private String titulo;
+
 	@Column(name="ACO_PERG_CHAVE", nullable=false)
 	private String perguntaChave;
 	
@@ -36,6 +39,14 @@ public class AreaCompetencia extends AbstractEntity{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getPerguntaChave() {

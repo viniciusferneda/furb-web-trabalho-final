@@ -1,0 +1,54 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.soft/jsf/html" xmlns:ui="http://java.sun.soft/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.soft/jsf/core" xmlns:c="http://java.sun.soft/jsp/jstl/core">
+
+<style type="text/css">
+
+.fieldTitle {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 150px;
+	height: 30px;
+	text-align: right;
+	margin-right: 5px;
+	font-weight: bold; 
+	/*background-color: #F1EEE9;
+	margin-bottom: 5px;*/
+}
+
+.value {
+	display: inline-block;
+	float: left;
+}
+
+.field {
+	display: inline-block;
+	float: left
+	width: 400px;
+}
+</style>
+
+<ui:decorate template="/pages/templates/default.xhtml">
+	<ui:define name="tpCenter">
+		<h:form id="vwSoftwareForm">
+			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
+			
+			<ui:repeat var="soft" value="#{consultaSoftwareBean.lSoftware}">
+				 <p:panel header="Software: #{soft.id}" toggleable="true" toggleSpeed="500" >
+					<br/>
+					<p:outputLabel value="Nome:" styleClass="fieldTitle" />
+					<p:outputLabel value="#{soft.nome}" styleClass="value" />
+					<br/>
+					<p:outputLabel value="Organização solicitante:" styleClass="fieldTitle" />
+					<p:outputLabel value="#{soft.organizacaoSolicitante.nome}" styleClass="value" />
+					<br clear="left" />  
+					<br clear="right" />  
+			    </p:panel>  
+				<br/>  
+			</ui:repeat>
+		</h:form>
+	</ui:define>
+</ui:decorate>
+</html>
