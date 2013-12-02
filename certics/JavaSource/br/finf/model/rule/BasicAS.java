@@ -7,7 +7,6 @@ import br.finf.dao.entity.AbstractEntity;
 /**
  * Classe base para regras de negócios não específicas de objeto.
  * 
- * @author teixeira
  */
 public class BasicAS extends BasicDAO {
 	

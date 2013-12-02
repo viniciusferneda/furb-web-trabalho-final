@@ -11,7 +11,6 @@ import br.finf.model.rule.BasicBE;
 /**
  * Implementação base para a camada que obtém os BEs, ASs, DAOs com a sessão.
 
- * @author teixeira
  */
 public abstract class AbstractFacade {
 	

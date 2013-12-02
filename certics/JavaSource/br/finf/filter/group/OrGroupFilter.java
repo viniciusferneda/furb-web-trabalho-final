@@ -3,7 +3,6 @@ package br.finf.filter.group;
 /**
  * Grupo de condicionais com OR.
  * 
- * @author teixeira
  */
 public class OrGroupFilter extends GroupFilter {
 	

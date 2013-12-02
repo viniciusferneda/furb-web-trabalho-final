@@ -17,3 +17,5 @@ Além desses critérios, cada um deles será analisado através dos critérios qualit
 - Capacidade de interpretar e resolver problemas; 
 - Capacidade de abstração; 
 - Coerência e lógica das especificações realizadas.
+
+INSERT INTO usuario (usr_email, usr_senha, usr_perfil, usr_pesid) VALUES ('vinicius.ferneda@gmail.com', '123456', 'Administrador', 1);

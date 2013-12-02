@@ -27,7 +27,7 @@ public class DBSession {
 		if(entityManager != null) {
 			throw new IllegalStateException("Entity Manager já iniciado!");
 		}
-		entityManager = HibernateUtil.getEntityManager("certics");
+		entityManager = HibernateUtil.getEntityManager("CerticsDS");
 	}
 	
 	public void beginTransaction() {

@@ -3,7 +3,6 @@ package br.finf.batch;
 /**
  * Thread escreva que fica obtendo e executando trabalhos de um pool.
  * 
- * @author teixeira
  */
 class BatchSlave extends Thread {
 

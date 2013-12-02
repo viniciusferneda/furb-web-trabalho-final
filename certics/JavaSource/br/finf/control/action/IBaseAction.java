@@ -3,7 +3,6 @@ package br.finf.control.action;
 /**
  * Representação de nível abstrato das ações de uma action.
  * 
- * @author thiago.teixeira
  */
 public interface IBaseAction {
 

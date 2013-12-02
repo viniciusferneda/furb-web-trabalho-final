@@ -7,7 +7,6 @@ import br.finf.dao.entity.AbstractEntity;
 /**
  * Classe base para uso de DAO.
  * 
- * @author teixeira
  */
 public class BasicDAO {
 	

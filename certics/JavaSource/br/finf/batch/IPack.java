@@ -5,7 +5,6 @@ package br.finf.batch;
  * Será executado uma única vez pelo pool.
  * 
  * @see BatchPool#process(boolean)
- * @author teixeira
  */
 public interface IPack {
 

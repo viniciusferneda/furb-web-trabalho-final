@@ -48,7 +48,6 @@ public class FacadeProvider {
 	/**
 	 * Classe interceptadora.
 	 * 
-	 * @author teixeira
 	 */
 	private static class MyInterceptor implements MethodInterceptor {
 		

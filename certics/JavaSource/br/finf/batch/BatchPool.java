@@ -9,7 +9,6 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * Classe que disponibiliza e controla um pool de execuções.
  * 
- * @author teixeira
  */
 public class BatchPool {
 	

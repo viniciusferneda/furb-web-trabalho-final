@@ -9,7 +9,6 @@ import br.finf.dao.entity.AbstractEntity;
 /**
  * Classe que provê {@link BasicDAO} e {@link BasicBE} com a session mantida.
  * 
- * @author teixeira
  */
 public class RuleProvider {
 	

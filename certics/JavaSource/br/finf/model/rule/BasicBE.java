@@ -13,8 +13,6 @@ import br.finf.filter.QueryBuilder;
 /**
  * Classe base de negócio específica para tratar uma {@link AbstractEntity}.
  * 
- * @author teixeira
- *
  * @param <T> {@link AbstractEntity} que deve ser manipulada.
  */
 public class BasicBE<T extends AbstractEntity> extends BasicDAO {
