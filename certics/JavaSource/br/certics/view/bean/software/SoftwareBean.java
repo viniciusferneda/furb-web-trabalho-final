@@ -19,6 +19,7 @@ import br.finf.control.facade.FacadeProvider;
 public class SoftwareBean {
 
 	private SoftwareEntity software = new SoftwareEntity();
+	private OrganizacaoSolicitanteEntity organizacaoSolicitante = new OrganizacaoSolicitanteEntity();
 	
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
@@ -30,6 +31,7 @@ public class SoftwareBean {
 	
 	public void salvar() {
 		SoftwareFacade facade = FacadeProvider.get().provide(SoftwareFacade.class);
+		software.setOrganizacaoSolicitante(organizacaoSolicitante);
 		facade.salvar(software);
 		MessageUtils.addInfoMessage("Software salvo com sucesso!");
 		limpar();
@@ -47,12 +49,20 @@ public class SoftwareBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public SoftwareEntity getSoftwareEntity() {
+	public SoftwareEntity getSoftware() {
 		return software;
 	}
 
-	public void setSoftwareEntity(SoftwareEntity software) {
+	public void setSoftware(SoftwareEntity software) {
 		this.software = software;
+	}
+
+	public OrganizacaoSolicitanteEntity getOrganizacaoSolicitante() {
+		return organizacaoSolicitante;
+	}
+
+	public void setOrganizacaoSolicitante(OrganizacaoSolicitanteEntity organizacaoSolicitante) {
+		this.organizacaoSolicitante = organizacaoSolicitante;
 	}
 
 }

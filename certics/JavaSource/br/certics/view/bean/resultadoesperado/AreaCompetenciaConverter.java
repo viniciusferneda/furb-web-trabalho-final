@@ -10,8 +10,8 @@ import br.certics.controller.facade.AreaCompetenciaFacade;
 import br.certics.model.entity.AreaCompetenciaEntity;
 import br.finf.control.facade.FacadeProvider;
 
-@FacesConverter(value="resultadoEsperadoConverter", forClass=AreaCompetenciaEntity.class) 
-public class ResultadoEsperadoConverter implements Converter{
+@FacesConverter(value="areaCompetenciaConverter", forClass=AreaCompetenciaEntity.class) 
+public class AreaCompetenciaConverter implements Converter{
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) throws ConverterException {  

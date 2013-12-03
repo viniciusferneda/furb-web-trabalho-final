@@ -22,7 +22,8 @@ public class OrganizacaoSolicitanteBean {
 	
 	public void salvar() {
 		OrganizacaoSolicitanteEntity organizacaoSolicitante = new OrganizacaoSolicitanteEntity();
-		
+		organizacaoSolicitante.setNome(nome);
+		organizacaoSolicitante.setCnpj(cnpj);
 		OrganizacaoSolicitanteFacade facade = FacadeProvider.get().provide(OrganizacaoSolicitanteFacade.class);
 		facade.salvar(organizacaoSolicitante);
 		

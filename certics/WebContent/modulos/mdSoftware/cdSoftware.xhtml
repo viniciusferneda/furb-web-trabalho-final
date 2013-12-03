@@ -39,9 +39,9 @@
 			<p:inputText id="nome" value="#{softwareBean.software.nome}" styleClass="value" required="true" requiredMessage="Informar o nome."/>
 			<br/>
 		    <p:outputLabel for="organizacaoSolicitante" value="Organização solicitante:" styleClass="fieldTitle" />
-			<p:selectOneMenu value="#{softwareBean.software.organizacaoSolicitante}" id="organizacaoSolicitante" styleClass="field" required="true" requiredMessage="Informar a Organização solicitante.">
+			<p:selectOneMenu value="#{softwareBean.organizacaoSolicitante}" id="organizacaoSolicitante" styleClass="field" required="true" requiredMessage="Informar a Organização solicitante." effect="fade" converter="organizacaoSolicitanteConverter">
 				<f:selectItem itemLabel="" />
-				<f:selectItems var="os" value="#{softwareBean.AllOrganizacaoSolicitante}" itemLabel="#{os.nome}" itemValue="#{os.id}" />
+				<f:selectItems var="os" value="#{softwareBean.allOrganizacaoSolicitante}" itemLabel="#{os.nome}" itemValue="#{os}" />
 			</p:selectOneMenu>
 			<br/>
 			<br/>
