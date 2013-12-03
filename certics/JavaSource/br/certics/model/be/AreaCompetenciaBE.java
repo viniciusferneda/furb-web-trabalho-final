@@ -20,4 +20,7 @@ public class AreaCompetenciaBE extends BasicBE<AreaCompetenciaEntity> {
 		return q.getResultList();
 	}
 
+	public AreaCompetenciaEntity selectByID(Long id) {
+		return executeNamedQuery("selectByID", id);
+	}
 }

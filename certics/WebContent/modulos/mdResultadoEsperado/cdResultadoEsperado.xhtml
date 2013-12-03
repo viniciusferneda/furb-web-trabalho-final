@@ -43,7 +43,7 @@
 			<br/>
 			<p:selectOneMenu value="#{resultadoEsperadoBean.resultadoEsperado.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Favor informar o sexo." >
 				<f:selectItem itemLabel="" />
-				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" />
+				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" itemValue="#{ac.id}" />
 			</p:selectOneMenu>
 			<br/>
 			<br/>

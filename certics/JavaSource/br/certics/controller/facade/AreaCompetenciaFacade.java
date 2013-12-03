@@ -22,6 +22,10 @@ public class AreaCompetenciaFacade extends AbstractFacade {
 		return getBE(AreaCompetenciaBE.class).selectAll();
 	}
 
+	public AreaCompetenciaEntity selectByID(Long id) {
+		return getBE(AreaCompetenciaBE.class).selectByID(id);
+	}
+	
 	public void salvar(AreaCompetenciaEntity areaCompetenciaEntity) {
 		getBE(AreaCompetenciaBE.class).save(areaCompetenciaEntity);
 	}
