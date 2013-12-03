@@ -14,7 +14,7 @@ import br.finf.control.facade.FacadeProvider;
 @WebService(name="WSConsultas", targetNamespace="http://localhost:8080/WSConsultas")
 public class WSConsultas {
 	
-	@WebMethod(action="http://localhost:8080/WSConsultas/getAvaliacoes", operationName="")
+	@WebMethod(action="http://localhost:8080/WSConsultas/getAvaliacoes")
 	@WebResult(name="getAvaliacoesResponse", partName="getAvaliacoesResponse")
 	public String[] getAvaliacoes() {
 		List<String> ofertas = new ArrayList<String>();
