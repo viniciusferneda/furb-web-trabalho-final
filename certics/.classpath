@@ -31,6 +31,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.27-bin.jar"/>
+	<classpathentry kind="lib" path="D:/Servers/jboss-as-7.1.1.Final/modules/com/mysql/main/mysql-connector-java-5.1.25-bin.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
