@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import br.certics.model.entity.AreaCompetenciaEntity;
 import br.certics.model.entity.PessoaFisicaEntity;
 import br.finf.dao.DBSession;
 import br.finf.model.rule.BasicBE;
@@ -26,6 +27,16 @@ public class PessoaFisicaBE extends BasicBE<PessoaFisicaEntity> {
 			return count.longValue() > 0;
 		}
 		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<PessoaFisicaEntity> selectAll() {
+		Query q = loadQuery("selectAll");
+		return q.getResultList();
+	}
+	
+	public PessoaFisicaEntity selectByID(Long id) {
+		return executeNamedQuery("selectByID", id);
 	}
 
 }

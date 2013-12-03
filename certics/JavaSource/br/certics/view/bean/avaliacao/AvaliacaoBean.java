@@ -7,11 +7,11 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import br.certics.controller.facade.AvaliacaoFacade;
+import br.certics.controller.facade.PessoaFisicaFacade;
+import br.certics.controller.facade.SoftwareFacade;
 import br.certics.model.entity.AvaliacaoEntity;
-import br.certics.model.entity.PerguntaRespostaEntity;
 import br.certics.model.entity.PessoaFisicaEntity;
 import br.certics.model.entity.SoftwareEntity;
-import br.certics.model.enums.EscalaPontuacaoAva;
 import br.certics.view.bean.ApplicationContextBean;
 import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
@@ -20,33 +20,30 @@ import br.finf.control.facade.FacadeProvider;
 @ManagedBean(name="avaliacaoBean")
 public class AvaliacaoBean {
 
-	private PessoaFisicaEntity avaliador;
-	private SoftwareEntity software;
-	private EscalaPontuacaoAva escalaPontuacaoAva;
-	private List<PerguntaRespostaEntity> lPerguntaResposta;
+	private AvaliacaoEntity avaliacao = new AvaliacaoEntity();
 
 	@ManagedProperty(value="#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
+	public List<PessoaFisicaEntity> getAllAvaliador(){
+		PessoaFisicaFacade pessoaFisicaFacade = FacadeProvider.get().provide(PessoaFisicaFacade.class);
+		return pessoaFisicaFacade.selectAll();
+	}
+
+	public List<SoftwareEntity> getAllSoftware(){
+		SoftwareFacade softwareFacade = FacadeProvider.get().provide(SoftwareFacade.class);
+		return softwareFacade.selectAll();
+	}
+
 	public void salvar() {
-		AvaliacaoEntity avaliacao = new AvaliacaoEntity();
-		avaliacao.setAvaliador(avaliador);
-		avaliacao.setSoftware(software);
-		avaliacao.setEscalaPontuacaoAva(escalaPontuacaoAva);
-		avaliacao.setPerguntaResposta(lPerguntaResposta);
-		
 		AvaliacaoFacade facade = FacadeProvider.get().provide(AvaliacaoFacade.class);
 		facade.salvar(avaliacao);
-		
 		MessageUtils.addInfoMessage("Avaliação salva com sucesso!");
 		limpar();
 	}
 	
 	public void limpar() {
-		avaliador = null;
-		software = null;
-		escalaPontuacaoAva = null;
-		lPerguntaResposta = null;
+		avaliacao = new AvaliacaoEntity();
 	}
 
 	public ApplicationContextBean getApplicationContext() {
@@ -55,38 +52,6 @@ public class AvaliacaoBean {
 
 	public void setApplicationContext(ApplicationContextBean applicationContext) {
 		this.applicationContext = applicationContext;
-	}
-
-	public PessoaFisicaEntity getAvaliador() {
-		return avaliador;
-	}
-
-	public void setAvaliador(PessoaFisicaEntity avaliador) {
-		this.avaliador = avaliador;
-	}
-
-	public SoftwareEntity getSoftware() {
-		return software;
-	}
-
-	public void setSoftware(SoftwareEntity software) {
-		this.software = software;
-	}
-
-	public EscalaPontuacaoAva getEscalaPontuacaoAva() {
-		return escalaPontuacaoAva;
-	}
-
-	public void setEscalaPontuacaoAva(EscalaPontuacaoAva escalaPontuacaoAva) {
-		this.escalaPontuacaoAva = escalaPontuacaoAva;
-	}
-
-	public List<PerguntaRespostaEntity> getlPerguntaResposta() {
-		return lPerguntaResposta;
-	}
-
-	public void setlPerguntaResposta(List<PerguntaRespostaEntity> lPerguntaResposta) {
-		this.lPerguntaResposta = lPerguntaResposta;
 	}
 	
 }

@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Table(name="SOFTWARE")
 @SequenceGenerator(name="SOF_ID", sequenceName="SOF_ID")
 @NamedQueries({ 
-	@NamedQuery(name="SoftwareEntity.selectAll", query="select obj from SoftwareEntity obj ")
+	@NamedQuery(name="SoftwareEntity.selectAll", query="select obj from SoftwareEntity obj "),
+	@NamedQuery(name="SoftwareEntity.selectByID", query="select obj from SoftwareEntity obj where obj.id = ?")
 	})
 public class SoftwareEntity extends Software{
 

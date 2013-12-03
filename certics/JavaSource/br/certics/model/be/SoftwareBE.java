@@ -19,5 +19,9 @@ public class SoftwareBE extends BasicBE<SoftwareEntity> {
 		Query q = loadQuery("selectAll");
 		return q.getResultList();
 	}
+	
+	public SoftwareEntity selectByID(Long id) {
+		return executeNamedQuery("selectByID", id);
+	}
 
 }

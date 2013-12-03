@@ -14,16 +14,24 @@ public class PessoaFisicaFacade extends AbstractFacade {
 		super(session);
 	}
 
+	public void salvar(PessoaFisicaEntity pessoaFisica) {
+		getBE(PessoaFisicaBE.class).save(pessoaFisica);
+	}
+
 	public List<PessoaFisicaEntity> executeQuery(QueryBuilder query) {
 		return getBE(PessoaFisicaBE.class).executeQueryList(query);
 	}
 
+	public List<PessoaFisicaEntity> selectAll() {
+		return getBE(PessoaFisicaBE.class).selectAll();
+	}
+	
 	public boolean isCPFUsado(String cpf) {
 		return getBE(PessoaFisicaBE.class).isCPFUsado(cpf);
 	}
 
-	public void salvar(PessoaFisicaEntity pessoaFisica) {
-		getBE(PessoaFisicaBE.class).save(pessoaFisica);
+	public PessoaFisicaEntity selectByID(Long id) {
+		return getBE(PessoaFisicaBE.class).selectByID(id);
 	}
 
 }

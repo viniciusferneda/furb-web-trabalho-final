@@ -36,10 +36,16 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="avaliador" value="Avaliador:" styleClass="fieldTitle" />
-			<p:inputText id="avaliador" value="#{avaliacaoBean.avaliador.id}" styleClass="value" required="true" requiredMessage="Informar o avaliador."/>
+			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.avaliador}" id="avaliador" styleClass="field" required="true" requiredMessage="Informar o avaliador.">
+				<f:selectItem itemLabel="" />
+				<f:selectItems var="av" value="#{avaliacaoBean.allAvaliador}" itemLabel="#{av.nome}" itemValue="#{av.id}" />
+			</p:selectOneMenu>
 	        <br/>
 		    <p:outputLabel for="software" value="Software:" styleClass="fieldTitle" />
-			<p:inputText id="software" value="#{avaliacaoBean.software.id}" styleClass="value" required="true" requiredMessage="Informar o software."/>
+			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.software}" id="software" styleClass="field" required="true" requiredMessage="Informar o software.">
+				<f:selectItem itemLabel="" />
+				<f:selectItems var="sof" value="#{avaliacaoBean.allSoftware}" itemLabel="#{sof.nome}" itemValue="#{sof.id}" />
+			</p:selectOneMenu>
 			<br/>
 			<br/>
 			<br/>
