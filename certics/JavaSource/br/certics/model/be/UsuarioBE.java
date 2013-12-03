@@ -29,7 +29,7 @@ public class UsuarioBE extends BasicBE<UsuarioEntity> {
 	}
 
 	public UsuarioEntity usuarioByEmailESenha(String email, String senha) {
-		return executeNamedQuery("selectUsuarioByEmailESenha", new Object[]{ email, senha });
+		return executeNamedQuery("selectUsuarioByEmailESenha", email, senha);
 	}
 
 }

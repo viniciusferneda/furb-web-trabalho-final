@@ -13,7 +13,11 @@ import javax.persistence.Table;
 @NamedQueries({ 
 	@NamedQuery(name = "UsuarioEntity.selectAll", query = "select obj from UsuarioEntity obj "), //
 	@NamedQuery(name = "UsuarioEntity.selectCountByEmail", query = "select count(obj) from UsuarioEntity obj where obj.email like ? "), //
-	@NamedQuery(name = "UsuarioEntity.selectUsuarioByEmailESenha", query = "select obj from UsuarioEntity obj where obj.email like ? and obj.senha like ?")
+	@NamedQuery(name = "UsuarioEntity.selectUsuarioByEmailESenha", 
+				query = "select obj from UsuarioEntity obj " +
+						"inner join fetch obj.pessoaFisica pes " +
+						"where obj.email like ? " +
+						"and obj.senha like ?")
 	})
 public class UsuarioEntity extends Usuario {
 	

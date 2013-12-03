@@ -1,9 +1,12 @@
 package br.certics.view.bean.resultadoesperado;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import br.certics.controller.facade.AreaCompetenciaFacade;
 import br.certics.controller.facade.ResultadoEsperadoFacade;
 import br.certics.model.entity.AreaCompetenciaEntity;
 import br.certics.model.entity.ResultadoEsperadoEntity;
@@ -15,27 +18,27 @@ import br.finf.control.facade.FacadeProvider;
 @ManagedBean(name="resultadoEsperadoBean")
 public class ResultadoEsperadoBean {
 
-	private String titulo;
-	private String descricao;
-	private AreaCompetenciaEntity areaCompetencia;
+	private ResultadoEsperadoEntity resultadoEsperado = new ResultadoEsperadoEntity();
 
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
+	public List<AreaCompetenciaEntity> getAllAreaCompetencia(){
+		AreaCompetenciaFacade areaCompetenciaFacade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
+		return areaCompetenciaFacade.selectAll();
+	}
+	
 	public void salvar() {
-		ResultadoEsperadoEntity resultadoEsperadoEntity = new ResultadoEsperadoEntity();
 		
 		ResultadoEsperadoFacade facade = FacadeProvider.get().provide(ResultadoEsperadoFacade.class);
-		facade.salvar(resultadoEsperadoEntity);
+		facade.salvar(resultadoEsperado);
 		
 		MessageUtils.addInfoMessage("Resultado esperado salvo com sucesso!");
 		limpar();
 	}
 	
 	public void limpar() {
-		titulo = null;
-		descricao = null;
-		areaCompetencia = null;
+		resultadoEsperado = new ResultadoEsperadoEntity();
 	}
 	
 	public ApplicationContextBean getApplicationContext() {
@@ -46,28 +49,12 @@ public class ResultadoEsperadoBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public ResultadoEsperadoEntity getResultadoEsperado() {
+		return resultadoEsperado;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public AreaCompetenciaEntity getAreaCompetencia() {
-		return areaCompetencia;
-	}
-
-	public void setAreaCompetencia(AreaCompetenciaEntity areaCompetencia) {
-		this.areaCompetencia = areaCompetencia;
+	public void setResultadoEsperado(ResultadoEsperadoEntity resultadoEsperado) {
+		this.resultadoEsperado = resultadoEsperado;
 	}
 	
 }

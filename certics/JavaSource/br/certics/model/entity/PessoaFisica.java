@@ -16,7 +16,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class PessoaFisica extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "PES_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator="PES_ID", strategy=GenerationType.IDENTITY)
 	@Column(name="PES_ID", nullable=false)
 	private Long id;
 	

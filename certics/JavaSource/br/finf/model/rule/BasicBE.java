@@ -139,8 +139,8 @@ public class BasicBE<T extends AbstractEntity> extends BasicDAO {
 	}
 
 	protected void putParams(Query query, Object[] params) {
-		for (int i = 0; i < params.length; i++) {
-			query.setParameter(i, params[i]);
+		for (int i = 1; i <= params.length; i++) {
+			query.setParameter(i, params[i-1]);
 		}
 	}
 

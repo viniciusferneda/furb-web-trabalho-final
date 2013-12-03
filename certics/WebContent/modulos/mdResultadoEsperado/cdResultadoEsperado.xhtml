@@ -36,13 +36,15 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="titulo" value="Título:" styleClass="fieldTitle" />
-			<p:inputText id="titulo" value="#{resultadoEsperadoBean.titulo}" styleClass="value" required="true" requiredMessage="Informar o título."/>
+			<p:inputText id="titulo" value="#{resultadoEsperadoBean.resultadoEsperado.titulo}" styleClass="value" required="true" requiredMessage="Informar o título."/>
 			<br/>
 		    <p:outputLabel for="descricao" value="Descrição:" styleClass="fieldTitle" />
-			<p:inputText id="descricao" value="#{resultadoEsperadoBean.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
+			<p:inputText id="descricao" value="#{resultadoEsperadoBean.resultadoEsperado.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
 			<br/>
-		    <p:outputLabel for="areaCompetencia" value="Área de competência:" styleClass="fieldTitle" />
-			<p:inputText id="areaCompetencia" value="#{resultadoEsperadoBean.areaCompetencia.id}" styleClass="value" required="true" requiredMessage="Informar a Área de competência."/>
+			<p:selectOneMenu value="#{resultadoEsperadoBean.resultadoEsperado.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Favor informar o sexo." >
+				<f:selectItem itemLabel="" />
+				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" />
+			</p:selectOneMenu>
 			<br/>
 			<br/>
 			<br/>
