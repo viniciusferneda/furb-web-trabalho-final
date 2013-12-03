@@ -35,8 +35,8 @@
 		<h:form id="vwResultadoEsperadoForm">
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 			
-			<ui:repeat var="resultEsp" value="#{consultaResultadoEsperadoBean.lresultEspware}">
-				 <p:panel header="resultEspware: #{resultEsp.id}" toggleable="true" toggleSpeed="500" >
+			<ui:repeat var="resultEsp" value="#{consultaResultadoEsperadoBean.lResultadoEsperado}">
+				 <p:panel header="Resultado esperado: #{resultEsp.id}" toggleable="true" toggleSpeed="500" >
 					<br/>
 					<p:outputLabel value="Título:" styleClass="fieldTitle" />
 					<p:outputLabel value="#{resultEsp.titulo}" styleClass="value" />

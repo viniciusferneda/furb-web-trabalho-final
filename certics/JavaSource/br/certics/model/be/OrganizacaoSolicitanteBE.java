@@ -20,4 +20,8 @@ public class OrganizacaoSolicitanteBE extends BasicBE<OrganizacaoSolicitanteEnti
 		return q.getResultList();
 	}
 
+	public OrganizacaoSolicitanteEntity selectByID(Long id) {
+		return executeNamedQuery("selectByID", id);
+	}
+
 }

@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Table(name="ORGANIZACAO_SOLICITANTE")
 @SequenceGenerator(name="OSO_ID", sequenceName="OSO_ID")
 @NamedQueries({ 
-	@NamedQuery(name="OrganizacaoSolicitanteEntity.selectAll", query="select obj from OrganizacaoSolicitanteEntity obj ")
+	@NamedQuery(name="OrganizacaoSolicitanteEntity.selectAll", query="select obj from OrganizacaoSolicitanteEntity obj "),
+	@NamedQuery(name="OrganizacaoSolicitanteEntity.selectByID", query="select obj from OrganizacaoSolicitanteEntity obj where obj.id = ?")
 	})
 public class OrganizacaoSolicitanteEntity extends OrganizacaoSolicitante{
 

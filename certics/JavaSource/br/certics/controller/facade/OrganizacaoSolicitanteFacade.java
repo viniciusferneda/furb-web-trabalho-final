@@ -26,4 +26,8 @@ public class OrganizacaoSolicitanteFacade extends AbstractFacade {
 		getBE(OrganizacaoSolicitanteBE.class).save(OrganizacaoSolicitanteEntity);
 	}
 
+	public OrganizacaoSolicitanteEntity selectByID(Long id) {
+		return getBE(OrganizacaoSolicitanteBE.class).selectByID(id);
+	}
+
 }

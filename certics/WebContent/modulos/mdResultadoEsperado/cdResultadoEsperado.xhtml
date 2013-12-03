@@ -41,7 +41,8 @@
 		    <p:outputLabel for="descricao" value="Descrição:" styleClass="fieldTitle" />
 			<p:inputText id="descricao" value="#{resultadoEsperadoBean.resultadoEsperado.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
 			<br/>
-			<p:selectOneMenu value="#{resultadoEsperadoBean.resultadoEsperado.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Favor informar o sexo." >
+		    <p:outputLabel for="areaCompetencia" value="Área de competência:" styleClass="fieldTitle" />
+			<p:selectOneMenu value="#{resultadoEsperadoBean.resultadoEsperado.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Informar a área de competência." >
 				<f:selectItem itemLabel="" />
 				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" itemValue="#{ac.id}" />
 			</p:selectOneMenu>

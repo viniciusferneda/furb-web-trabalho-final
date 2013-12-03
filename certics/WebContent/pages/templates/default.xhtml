@@ -33,10 +33,10 @@ html,body {
 			<p:layoutUnit position="north" styleClass="ui-layout-unit-content" >
 				<p:layout style="min-height:450px;max-height:450px">
 					<p:layoutUnit position="west" size="60%" style="border: none;" >
-					<h1 class="mainTitle" >CERTICS</h1>
+					<h1 class="mainTitle">CERTICS</h1>
 					</p:layoutUnit>
 					<p:layoutUnit position="center" size="40%" style="border: none;">
-						<!-- <p:graphicImage height="280px" value="/resources/images/logo.png" /> -->
+						<p:graphicImage height="280px" value="/resources/images/logo.png" />
 					</p:layoutUnit>
 				</p:layout>
 			</p:layoutUnit>
@@ -70,9 +70,6 @@ html,body {
 				        <p:submenu label="Avaliação" rendered="#{sessaoBean.logged}" >  
 				            <p:menuitem value="Nova avaliação" outcome="/pages/modulos/mdAvaliacao/cdAvaliacao.xhtml" ajax="false" icon="ui-icon-calculator"/>  
 				            <p:menuitem value="Avaliações" outcome="/pages/modulos/mdAvaliacao/vwAvaliacao.xhtml" ajax="false" icon="ui-icon-search"/>  
-				        </p:submenu> 
-				        <p:submenu label="Localizações" rendered="#{sessaoBean.logged}" >  
-				            <p:menuitem value="Localizações do computador" outcome="/pages/modulos/mdLocalizacao/vwLocalizacao.xhtml" ajax="false" icon="ui-icon-signal-diag"/>  
 				        </p:submenu> 
 				    </p:menu> 
 			   </h:form>

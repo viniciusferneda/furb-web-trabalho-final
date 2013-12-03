@@ -29,10 +29,8 @@ public class ResultadoEsperadoBean {
 	}
 	
 	public void salvar() {
-		
 		ResultadoEsperadoFacade facade = FacadeProvider.get().provide(ResultadoEsperadoFacade.class);
 		facade.salvar(resultadoEsperado);
-		
 		MessageUtils.addInfoMessage("Resultado esperado salvo com sucesso!");
 		limpar();
 	}

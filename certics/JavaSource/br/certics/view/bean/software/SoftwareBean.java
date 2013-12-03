@@ -1,9 +1,12 @@
 package br.certics.view.bean.software;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import br.certics.controller.facade.OrganizacaoSolicitanteFacade;
 import br.certics.controller.facade.SoftwareFacade;
 import br.certics.model.entity.OrganizacaoSolicitanteEntity;
 import br.certics.model.entity.SoftwareEntity;
@@ -15,25 +18,25 @@ import br.finf.control.facade.FacadeProvider;
 @ManagedBean(name="softwareBean")
 public class SoftwareBean {
 
-	private String nome;
-	private OrganizacaoSolicitanteEntity organizacaoSolicitante;
+	private SoftwareEntity software = new SoftwareEntity();
 	
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
+	public List<OrganizacaoSolicitanteEntity> getAllOrganizacaoSolicitante(){
+		OrganizacaoSolicitanteFacade organizacaoSolicitanteFacade = FacadeProvider.get().provide(OrganizacaoSolicitanteFacade.class);
+		return organizacaoSolicitanteFacade.selectAll();
+	}
+	
 	public void salvar() {
-		SoftwareEntity softwareEntity = new SoftwareEntity();
-		
 		SoftwareFacade facade = FacadeProvider.get().provide(SoftwareFacade.class);
-		facade.salvar(softwareEntity);
-		
+		facade.salvar(software);
 		MessageUtils.addInfoMessage("Software salvo com sucesso!");
 		limpar();
 	}
 	
 	public void limpar() {
-		nome = null;
-		organizacaoSolicitante = null;
+		software = new SoftwareEntity();
 	}
 	
 	public ApplicationContextBean getApplicationContext() {
@@ -44,20 +47,12 @@ public class SoftwareBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public String getNome() {
-		return nome;
+	public SoftwareEntity getSoftwareEntity() {
+		return software;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public OrganizacaoSolicitanteEntity getOrganizacaoSolicitante() {
-		return organizacaoSolicitante;
-	}
-
-	public void setOrganizacaoSolicitante(OrganizacaoSolicitanteEntity organizacaoSolicitante) {
-		this.organizacaoSolicitante = organizacaoSolicitante;
+	public void setSoftwareEntity(SoftwareEntity software) {
+		this.software = software;
 	}
 
 }

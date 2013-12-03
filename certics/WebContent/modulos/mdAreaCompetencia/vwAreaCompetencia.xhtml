@@ -32,10 +32,10 @@
 
 <ui:decorate template="/pages/templates/default.xhtml">
 	<ui:define name="tpCenter">
-		<h:form id="vwAreaareaCompetenciaForm">
+		<h:form id="vwAreaCompetenciaForm">
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 			
-			<ui:repeat var="areaCom" value="#{consultaAreaareaCompetenciaBean.lAreaareaCompetencia}">
+			<ui:repeat var="areaCom" value="#{consultaAreaCompetenciaBean.lAreaCompetencia}">
 				 <p:panel header="Área de areaCompetência: #{areaCom.id}" toggleable="true" toggleSpeed="500" >
 					<br/>
 					<p:outputLabel value="Título:" styleClass="fieldTitle" />
