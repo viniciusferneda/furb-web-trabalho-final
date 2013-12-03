@@ -11,8 +11,10 @@ import javax.persistence.Table;
 @Table(name="RESULTADO_ESPERADO")
 @SequenceGenerator(name="REP_ID", sequenceName="REP_ID")
 @NamedQueries({ 
-	@NamedQuery(name="ResultadoEsperadoEntity.selectAll", query="select obj from ResultadoEsperadoEntity obj "),
-	@NamedQuery(name="ResultadoEsperadoEntity.selectCountByTitulo", query="select count(obj) from ResultadoEsperadoEntity obj where obj.titulo like ? ")
+	@NamedQuery(name="ResultadoEsperadoEntity.selectAll", 
+			query="select obj from ResultadoEsperadoEntity obj " +
+					" inner join fetch obj.areaCompetencia aco " +
+					"order by obj.areaCompetencia.titulo")
 	})
 public class ResultadoEsperadoEntity extends ResultadoEsperado{
 

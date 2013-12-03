@@ -47,6 +47,44 @@
 				<f:selectItems var="sof" value="#{avaliacaoBean.allSoftware}" itemLabel="#{sof.nome}" itemValue="#{sof.id}" />
 			</p:selectOneMenu>
 			<br/>
+			<h:dataTable value="#{avaliacaoBean.lPerguntaResposta}" var="pergRes" editable="true">
+				<f:facet name="header">
+					Questionário
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Área de competência" />
+					</f:facet>
+					<h:outputText value="#{car.resultadoEsperado.areaCompetencia.titulo}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Resultado Esperado" />
+					</f:facet>
+					<h:outputText value="#{car.resultadoEsperado.titulo}" />
+				</p:column>
+				<p:column headerText="Evidência">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{pergRes.evidencia}" />
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{pergRes.evidencia}"/>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Pontuação">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{pergRes.escalaPontuacaoRE}" />
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{pergRes.escalaPontuacaoRE.descricao}"/>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+			</h:dataTable>
+			<br/>
 			<br/>
 			<br/>
 			<p:commandButton value="Salvar"  action="#{avaliacaoBean.salvar()}" update="cdAvaliacaoForm,messages" ajax="false" oncomplete="PF('ppNovaAvaliacao').hide();" process="@form" />
