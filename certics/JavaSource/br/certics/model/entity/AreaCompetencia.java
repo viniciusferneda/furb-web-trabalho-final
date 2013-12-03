@@ -30,7 +30,7 @@ public class AreaCompetencia extends AbstractEntity{
 	@Column(name="ACO_DESC", nullable=false)
 	private String descricao;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="areaCompetencia", targetEntity = ResultadoEsperadoEntity.class)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="areaCompetencia", targetEntity=ResultadoEsperadoEntity.class)
 	private List<ResultadoEsperadoEntity> resultadoEsperado;
 	
 	public Long getId() {
@@ -72,5 +72,20 @@ public class AreaCompetencia extends AbstractEntity{
 	public void setResultadoEsperado(List<ResultadoEsperadoEntity> resultadoEsperado) {
 		this.resultadoEsperado = resultadoEsperado;
 	}
-	
+
+	public boolean equals(Object obj) {
+		if (this == obj)  
+            return true;  
+        if (obj == null)  
+            return false;  
+        if (!(obj instanceof AreaCompetencia))  
+            return false;  
+        AreaCompetencia other = (AreaCompetencia) obj;  
+        if (id == null){  
+            if (other.id != null)  
+                return false;  
+        } else if (!id.equals(other.id))  
+            return false;  
+        return true;
+	};
 }

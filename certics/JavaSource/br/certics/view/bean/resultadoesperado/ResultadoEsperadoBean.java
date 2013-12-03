@@ -19,7 +19,8 @@ import br.finf.control.facade.FacadeProvider;
 public class ResultadoEsperadoBean {
 
 	private ResultadoEsperadoEntity resultadoEsperado = new ResultadoEsperadoEntity();
-
+	private AreaCompetenciaEntity areaCompetencia = new AreaCompetenciaEntity();
+	
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
@@ -30,6 +31,7 @@ public class ResultadoEsperadoBean {
 	
 	public void salvar() {
 		ResultadoEsperadoFacade facade = FacadeProvider.get().provide(ResultadoEsperadoFacade.class);
+		resultadoEsperado.setAreaCompetencia(areaCompetencia);
 		facade.salvar(resultadoEsperado);
 		MessageUtils.addInfoMessage("Resultado esperado salvo com sucesso!");
 		limpar();
@@ -54,5 +56,13 @@ public class ResultadoEsperadoBean {
 	public void setResultadoEsperado(ResultadoEsperadoEntity resultadoEsperado) {
 		this.resultadoEsperado = resultadoEsperado;
 	}
-	
+
+	public AreaCompetenciaEntity getAreaCompetencia() {
+		return areaCompetencia;
+	}
+
+	public void setAreaCompetencia(AreaCompetenciaEntity areaCompetencia) {
+		this.areaCompetencia = areaCompetencia;
+	}
+
 }

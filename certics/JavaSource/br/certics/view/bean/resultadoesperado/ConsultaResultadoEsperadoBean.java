@@ -35,7 +35,7 @@ public class ConsultaResultadoEsperadoBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public List<ResultadoEsperadoEntity> getlOrganizacaoSolicitante() {
+	public List<ResultadoEsperadoEntity> getlResultadoEsperado() {
 		return lResultadoEsperado;
 	}
 

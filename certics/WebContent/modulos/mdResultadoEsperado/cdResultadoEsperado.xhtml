@@ -41,16 +41,16 @@
 		    <p:outputLabel for="descricao" value="Descrição:" styleClass="fieldTitle" />
 			<p:inputText id="descricao" value="#{resultadoEsperadoBean.resultadoEsperado.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
 			<br/>
-		    <p:outputLabel for="areaCompetencia" value="Área de competência:" styleClass="fieldTitle" />
-			<p:selectOneMenu value="#{resultadoEsperadoBean.resultadoEsperado.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Informar a área de competência." >
+		    <p:outputLabel for="areaCompetencia" value="Área de competência:" styleClass="fieldTitle"/>
+			<p:selectOneMenu value="#{resultadoEsperadoBean.areaCompetencia}" id="areaCompetencia" styleClass="field" required="false" requiredMessage="Informar a área de competência." effect="fade" converter="resultadoEsperadoConverter" process="@this">
 				<f:selectItem itemLabel="" />
-				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" itemValue="#{ac.id}" />
+				<f:selectItems var="ac" value="#{resultadoEsperadoBean.allAreaCompetencia}" itemLabel="#{ac.titulo}" itemValue="#{ac}" />
 			</p:selectOneMenu>
 			<br/>
 			<br/>
 			<br/>
-			<p:commandButton value="Salvar"  action="#{resultadoEsperadoBean.salvar()}" update="cdResultadoEsperadoForm,messages" ajax="false" oncomplete="PF('ppNovoResultadoEsperado').hide();" process="@form" />
-			<p:commandButton value="Cancelar" action="#{resultadoEsperadoBean.limpar()}" update="cdResultadoEsperadoForm,messages" ajax="false" oncomplete="PF('ppNovoResultadoEsperado').hide();" />  
+			<p:commandButton value="Salvar"  action="#{resultadoEsperadoBean.salvar()}" update="cdResultadoEsperadoForm,messages" ajax="false" process="@form" />
+			<p:commandButton value="Cancelar" action="#{resultadoEsperadoBean.limpar()}" update="cdResultadoEsperadoForm,messages" ajax="false"/>  
 			<br style="clear: left;" />			
 		</h:form>
 	</ui:define>

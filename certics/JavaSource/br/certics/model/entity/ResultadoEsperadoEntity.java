@@ -18,4 +18,8 @@ import javax.persistence.Table;
 	})
 public class ResultadoEsperadoEntity extends ResultadoEsperado{
 
+	@Override
+	public void setAreaCompetencia(AreaCompetenciaEntity areaCompetencia) {
+		super.setAreaCompetencia(areaCompetencia);
+	}
 }
