@@ -48,23 +48,25 @@
 			</p:selectOneMenu>
 			<br/>
 			<br/>
-			<h:dataTable border="1" value="#{avaliacaoBean.lPerguntaResposta}" var="pergRes" editable="true" id="pergResTable" style="width: 100%">
+			<br/>
+			<br/>
+			<p:dataTable id="pergResTable" var="pergRes" value="#{avaliacaoBean.lPerguntaResposta}" editable="true" editMode="cell" style="width: 100%">
 				<f:facet name="header">
 					Questionário
 				</f:facet>
-				<p:column>
+				<p:column style="white-space:normal !important;" width="20%">
 					<f:facet name="header">
 						<h:outputText value="Área de competência" />
 					</f:facet>
 					<h:outputText value="#{pergRes.resultadoEsperado.areaCompetencia.titulo}" />
 				</p:column>
-				<p:column>
+				<p:column style="white-space:normal !important;" width="20%">
 					<f:facet name="header">
 						<h:outputText value="Resultado Esperado" />
 					</f:facet>
 					<h:outputText value="#{pergRes.resultadoEsperado.titulo}" />
 				</p:column>
-				<p:column>
+				<p:column style="width:40%">
 					<f:facet name="header">
 						<h:outputText value="Evidência" />
 					</f:facet>
@@ -73,11 +75,11 @@
 							<h:outputText value="#{pergRes.evidencia}" />
 						</f:facet>
 						<f:facet name="input">
-							<h:inputText value="#{pergRes.evidencia}"/>
+							<h:inputTextarea value="#{pergRes.evidencia}" style="width:100%; height:100%; autoResize:false"/>
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
-				<p:column>
+				<p:column style="width:10%">
 					<f:facet name="header">
 						<h:outputText value="Pontuação" />
 					</f:facet>
@@ -86,16 +88,19 @@
 							<h:outputText value="#{pergRes.escalaPontuacaoRE}" />
 						</f:facet>
 						<f:facet name="input">
-							<h:inputText value="#{pergRes.escalaPontuacaoRE.descricao}"/>
+							<p:selectOneMenu value="#{pergRes.escalaPontuacaoRE}" style="width:100%" styleClass="field" required="true" requiredMessage="Informar a pontuação.">
+								<f:selectItem itemLabel="" />
+		                        <f:selectItems value="#{avaliacaoBean.allEscalaPontuacaoRE}" var="escalaPontuacaoRE" itemLabel="#{escalaPontuacaoRE}" itemValue="#{escalaPontuacaoRE}" />  
+		                    </p:selectOneMenu>
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
-			</h:dataTable>
+			</p:dataTable>
 			<br/>
 			<br/>
 			<br/>
-			<p:commandButton value="Salvar"  action="#{avaliacaoBean.salvar()}" update="cdAvaliacaoForm,messages" ajax="false" oncomplete="PF('ppNovaAvaliacao').hide();" process="@form" />
-			<p:commandButton value="Cancelar" action="#{avaliacaoBean.limpar()}" update="cdAvaliacaoForm,messages" ajax="false" oncomplete="PF('ppNovaAvaliacao').hide();" />  
+			<p:commandButton value="Salvar"  action="#{avaliacaoBean.salvar()}" update="cdAvaliacaoForm,messages" ajax="false" process="@form"/>
+			<p:commandButton value="Cancelar" action="#{avaliacaoBean.limpar()}" update="cdAvaliacaoForm,messages" ajax="false"/>  
 			<br style="clear: left;" />			
 		</h:form>
 	</ui:define>
