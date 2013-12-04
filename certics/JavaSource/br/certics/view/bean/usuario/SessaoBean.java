@@ -6,6 +6,7 @@ import javax.faces.bean.SessionScoped;
 
 import br.certics.controller.facade.UsuarioFacade;
 import br.certics.model.entity.UsuarioEntity;
+import br.certics.model.enums.PerfilUsuario;
 import br.certics.view.bean.ApplicationContextBean;
 import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
@@ -69,6 +70,10 @@ public class SessaoBean {
 
 	public boolean isLogged() {
 		return applicationContext.getUsuarioLogado() != null;
+	}
+	
+	public boolean isAdm() {
+		return applicationContext.getUsuarioLogado() != null && PerfilUsuario.ADM.equals(applicationContext.getUsuarioLogado().getPerfilUsuario());
 	}
 	
 	public String getUserName() {

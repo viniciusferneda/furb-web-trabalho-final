@@ -35,12 +35,6 @@
 		<h:form id="cdAvaliacaoForm">
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
-		    <p:outputLabel for="avaliador" value="Avaliador:" styleClass="fieldTitle" />
-			<p:selectOneMenu value="#{avaliacaoBean.avaliador}" id="avaliador" styleClass="field" required="true" requiredMessage="Informar o avaliador." effect="fade" converter="avaliadorConverter">
-				<f:selectItem itemLabel="" />
-				<f:selectItems var="av" value="#{avaliacaoBean.allAvaliador}" itemLabel="#{av.nome}" itemValue="#{av}" />
-			</p:selectOneMenu>
-	        <br/>
 		    <p:outputLabel for="software" value="Software:" styleClass="fieldTitle" />
 			<p:selectOneMenu value="#{avaliacaoBean.software}" id="software" styleClass="field" required="true" requiredMessage="Informar o software." effect="fade" converter="softwareConverter">
 				<f:selectItem itemLabel="" />

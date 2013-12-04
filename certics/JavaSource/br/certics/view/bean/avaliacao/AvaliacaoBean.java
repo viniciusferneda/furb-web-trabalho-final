@@ -30,7 +30,6 @@ public class AvaliacaoBean {
 
 	private AvaliacaoEntity avaliacao = new AvaliacaoEntity();
 	private SoftwareEntity software = new SoftwareEntity();
-	private PessoaFisicaEntity avaliador = new PessoaFisicaEntity();
 	
 	private List<PerguntaRespostaEntity> lPerguntaResposta = new ArrayList<PerguntaRespostaEntity>();
 	
@@ -59,7 +58,7 @@ public class AvaliacaoBean {
 	public void salvar() {
 		AvaliacaoFacade facade = FacadeProvider.get().provide(AvaliacaoFacade.class);
 		avaliacao.setSoftware(software);
-		avaliacao.setAvaliador(avaliador);
+		avaliacao.setAvaliador(applicationContext.getUsuarioLogado().getPessoaFisica());
 		avaliacao.setPerguntaResposta(lPerguntaResposta);
 		avaliacao.setEscalaPontuacaoAva(EscalaPontuacaoAva.S);
 		for (PerguntaRespostaEntity pergRes : lPerguntaResposta) {
@@ -90,7 +89,6 @@ public class AvaliacaoBean {
 	public void limpar() {
 		avaliacao = new AvaliacaoEntity();
 		software = new SoftwareEntity();
-		avaliador = new PessoaFisicaEntity();
 		criaListaPerguntaResposta();
 	}
 
@@ -136,14 +134,6 @@ public class AvaliacaoBean {
 
 	public void setSoftware(SoftwareEntity software) {
 		this.software = software;
-	}
-
-	public PessoaFisicaEntity getAvaliador() {
-		return avaliador;
-	}
-
-	public void setAvaliador(PessoaFisicaEntity avaliador) {
-		this.avaliador = avaliador;
 	}
 	
 }

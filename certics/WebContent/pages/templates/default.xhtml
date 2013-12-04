@@ -49,11 +49,11 @@ html,body {
 				            <p:menuitem value="Login" outcome="/pages/modulos/mdUsuario/login.xhtml" ajax="false" icon="ui-icon-grip-diagonal-se" rendered="#{not sessaoBean.logged}" />
 				            <p:menuitem value="Meus dados" outcome="/pages/modulos/mdUsuario/dadosUsuario.xhtml" ajax="false" icon="ui-icon-person" rendered="#{sessaoBean.logged}" />
 				        </p:submenu> 
-				        <p:submenu label="Área de competência" rendered="#{sessaoBean.logged}" >  
+				        <p:submenu label="Área de competência" rendered="#{sessaoBean.adm}" >  
 				            <p:menuitem value="Nova área de competência" outcome="/pages/modulos/mdAreaCompetencia/cdAreaCompetencia.xhtml" ajax="false" icon="ui-icon-calculator"/>  
 				            <p:menuitem value="Áreas de competência" outcome="/pages/modulos/mdAreaCompetencia/vwAreaCompetencia.xhtml" ajax="false" icon="ui-icon-search"/>  
 				        </p:submenu> 
-				        <p:submenu label="Resultado esperado" rendered="#{sessaoBean.logged}" >  
+				        <p:submenu label="Resultado esperado" rendered="#{sessaoBean.adm}" >  
 				            <p:menuitem value="Novo resultado esperado" outcome="/pages/modulos/mdResultadoEsperado/cdResultadoEsperado.xhtml" ajax="false" icon="ui-icon-calculator"/>  
 				            <p:menuitem value="Resultados esperados" outcome="/pages/modulos/mdResultadoEsperado/vwResultadoEsperado.xhtml" ajax="false" icon="ui-icon-search"/>  
 				        </p:submenu> 
