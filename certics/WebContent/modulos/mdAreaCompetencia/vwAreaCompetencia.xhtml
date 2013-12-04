@@ -1,7 +1,7 @@
 <!DOCTYPE html [
     <!ENTITY nbsp "&#160;"> 
 ]>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.areaCom/jsf/html" xmlns:ui="http://java.sun.areaCom/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.areaCom/jsf/core" xmlns:c="http://java.sun.areaCom/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <style type="text/css">
 
@@ -34,23 +34,27 @@
 	<ui:define name="tpCenter">
 		<h:form id="vwAreaCompetenciaForm">
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
-			
-			<ui:repeat var="areaCom" value="#{consultaAreaCompetenciaBean.lAreaCompetencia}">
-				 <p:panel header="Área de areaCompetência: #{areaCom.id}" toggleable="true" toggleSpeed="500" >
-					<br/>
-					<p:outputLabel value="Título:" styleClass="fieldTitle" />
-					<p:outputLabel value="#{areaCom.titulo}" styleClass="value" />
-					<br/>
-					<p:outputLabel value="Pergunta-chave:" styleClass="fieldTitle" />
-					<p:outputLabel value="#{areaCom.perguntaChave}" styleClass="value" />
-					<br/>
-					<p:outputLabel value="Descrição:" styleClass="fieldTitle" />
-					<p:outputLabel value="#{areaCom.descricao}" styleClass="value" />
-					<br clear="left" />  
-					<br clear="right" />  
-			    </p:panel>  
-				<br/>  
-			</ui:repeat>
+			<p:dataTable id="dataTable" var="areaCom" value="#{consultaAreaCompetenciaBean.allAreaCompetencia}" widgetVar="areaComTable"   
+            	emptyMessage="Não existem áreas de competências" filteredValue="#{consultaAreaCompetenciaBean.allAreaCompetencia}">  
+		 
+				 <f:facet name="header">  
+		            <p:outputPanel>  
+		                <h:outputText value="Área de competência" />  
+		            </p:outputPanel>  
+		        </f:facet> 
+        
+		       <p:column id="tituloColumn" filterBy="titulo" headerText="Título" filterMatchMode="startsWith" style="white-space:normal !important;" width="20%">  
+		           <h:outputText value="#{areaCom.titulo}" />  
+		       </p:column>  
+		 
+		       <p:column id="perguntaChaveColumn" filterBy="perguntaChave" headerText="Pergunta-chave" filterMatchMode="startsWith" style="white-space:normal !important;" width="20%">  
+		           <h:outputText value="#{areaCom.perguntaChave}" />  
+		       </p:column>  
+
+		       <p:column id="descricaoColumn" filterBy="descricao" headerText="Descrição" filterMatchMode="contains" style="white-space:normal !important;" width="60%">  
+		           <h:outputText value="#{areaCom.descricao}" />  
+		       </p:column>  
+		   </p:dataTable>
 		</h:form>
 	</ui:define>
 </ui:decorate>

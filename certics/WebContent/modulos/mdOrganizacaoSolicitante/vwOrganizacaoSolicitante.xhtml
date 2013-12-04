@@ -1,7 +1,7 @@
 <!DOCTYPE html [
     <!ENTITY nbsp "&#160;"> 
 ]>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.orgSol/jsf/html" xmlns:ui="http://java.sun.orgSol/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.orgSol/jsf/core" xmlns:c="http://java.sun.orgSol/jsp/jstl/core">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <style type="text/css">
 
@@ -34,20 +34,23 @@
 	<ui:define name="tpCenter">
 		<h:form id="vwOrganizacaoSolicitanteForm">
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
-			
-			<ui:repeat var="orgSol" value="#{consultaOrganizacaoSolicitanteBean.lOrganizacaoSolicitante}">
-				 <p:panel header="Organização solicitante: #{orgSol.id}" toggleable="true" toggleSpeed="500" >
-					<br/>
-					<p:outputLabel value="Nome:" styleClass="fieldTitle" />
-					<p:outputLabel value="#{orgSol.nome}" styleClass="value" />
-					<br/>
-					<p:outputLabel value="CNPJ:" styleClass="fieldTitle" />
-					<p:outputLabel value="#{orgSol.cnpj}" styleClass="value" />
-					<br clear="left" />  
-					<br clear="right" />  
-			    </p:panel>  
-				<br/>  
-			</ui:repeat>
+			<p:dataTable id="dataTable" var="orgSol" value="#{consultaOrganizacaoSolicitanteBean.allOrganizacaoSolicitante}" widgetVar="orgSolTable"   
+            	emptyMessage="Não existem organizações" filteredValue="#{consultaOrganizacaoSolicitanteBean.allOrganizacaoSolicitante}">  
+		 
+		 		<f:facet name="header">  
+		            <p:outputPanel>  
+		                <h:outputText value="Organizaçõo solicitante" />  
+		            </p:outputPanel>  
+		        </f:facet>
+		        
+		       <p:column id="nomeColumn" filterBy="nome" headerText="Nome" filterMatchMode="startsWith" style="white-space:normal !important;" width="80%">  
+		           <h:outputText value="#{orgSol.nome}" />  
+		       </p:column>  
+		 
+		       <p:column id="cnpjColumn" filterBy="cnpj" headerText="CNPJ" filterMatchMode="startsWith" style="white-space:normal !important;" width="20%">  
+		           <h:outputText value="#{orgSol.cnpj}" />  
+		       </p:column>  
+		   </p:dataTable>
 		</h:form>
 	</ui:define>
 </ui:decorate>

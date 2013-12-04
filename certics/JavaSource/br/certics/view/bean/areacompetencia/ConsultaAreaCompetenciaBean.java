@@ -1,9 +1,7 @@
 package br.certics.view.bean.areacompetencia;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -17,16 +15,9 @@ import br.finf.control.facade.FacadeProvider;
 @ManagedBean(name="consultaAreaCompetenciaBean")
 public class ConsultaAreaCompetenciaBean {
 
-	private final List<AreaCompetenciaEntity> lAreaCompetencia = new ArrayList<AreaCompetenciaEntity>();
-
 	@ManagedProperty(value = "#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 	
-	@PostConstruct
-	public void init() {
-		filtrar();
-	}
-
 	public ApplicationContextBean getApplicationContext() {
 		return applicationContext;
 	}
@@ -35,14 +26,9 @@ public class ConsultaAreaCompetenciaBean {
 		this.applicationContext = applicationContext;
 	}
 
-	public List<AreaCompetenciaEntity> getlAreaCompetencia() {
-		return lAreaCompetencia;
+	public List<AreaCompetenciaEntity> getAllAreaCompetencia(){
+		AreaCompetenciaFacade areaCompetenciaFacade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
+		return areaCompetenciaFacade.selectAll();
 	}
 
-	public void filtrar() {
-		AreaCompetenciaFacade facade = FacadeProvider.get().provide(AreaCompetenciaFacade.class);
-		lAreaCompetencia.clear();
-		lAreaCompetencia.addAll(facade.selectAll());
-	}
-	
 }

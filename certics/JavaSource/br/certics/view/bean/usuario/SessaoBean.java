@@ -12,13 +12,13 @@ import br.certics.view.bean.MessageUtils;
 import br.finf.control.facade.FacadeProvider;
 
 @SessionScoped
-@ManagedBean(name = "sessaoBean")
+@ManagedBean(name="sessaoBean")
 public class SessaoBean {
 
 	private String email = null;
 	private String senha = null;
 	
-	@ManagedProperty(value = "#{applicationContextBean}")
+	@ManagedProperty(value="#{applicationContextBean}")
 	private ApplicationContextBean applicationContext;
 
 	public String getEmail() {
