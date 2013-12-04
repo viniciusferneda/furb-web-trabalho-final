@@ -35,6 +35,7 @@ public class AreaCompetenciaBean {
 	}
 	
 	public void limpar() {
+		titulo = null;
 		descricao = null;
 		perguntaChave = null;
 	}

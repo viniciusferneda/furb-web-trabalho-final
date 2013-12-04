@@ -36,18 +36,18 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="titulo" value="Título:" styleClass="fieldTitle" />
-			<p:inputText id="titulo" value="#{areaCompetenciaBean.titulo}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
+			<p:inputText size="100" id="titulo" value="#{areaCompetenciaBean.titulo}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
 			<br/>
 		    <p:outputLabel for="perguntaChave" value="Pergunta-chave:" styleClass="fieldTitle" />
-			<p:inputText id="perguntaChave" value="#{areaCompetenciaBean.perguntaChave}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
+			<p:inputText size="100" id="perguntaChave" value="#{areaCompetenciaBean.perguntaChave}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
 			<br/>
 		    <p:outputLabel for="descricao" value="Descrição:" styleClass="fieldTitle" />
-			<p:inputText id="descricao" value="#{areaCompetenciaBean.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
+			<p:inputTextarea autoResize="true" rows="10" cols="102" id="descricao" value="#{areaCompetenciaBean.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
 			<br/>
 			<br/>
 			<br/>
-			<p:commandButton value="Salvar"  action="#{areaCompetenciaBean.salvar()}" update="cdAreaCompetenciaForm,messages" ajax="false" oncomplete="PF('ppNovaAreaCompetencia').hide();" process="@form" />
-			<p:commandButton value="Cancelar" action="#{areaCompetenciaBean.limpar()}" update="cdAreaCompetenciaForm,messages" ajax="false" oncomplete="PF('ppNovaAreaCompetencia').hide();" />  
+			<p:commandButton value="Salvar"  action="#{areaCompetenciaBean.salvar()}" update="cdAreaCompetenciaForm,messages" ajax="false" process="@form"/>
+			<p:commandButton value="Cancelar" action="#{areaCompetenciaBean.limpar()}" update="cdAreaCompetenciaForm,messages" ajax="false"/>  
 			<br style="clear: left;" />			
 		</h:form>
 	</ui:define>

@@ -36,10 +36,10 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="titulo" value="Título:" styleClass="fieldTitle" />
-			<p:inputText id="titulo" value="#{resultadoEsperadoBean.resultadoEsperado.titulo}" styleClass="value" required="true" requiredMessage="Informar o título."/>
+			<p:inputText size="100" id="titulo" value="#{resultadoEsperadoBean.resultadoEsperado.titulo}" styleClass="value" required="true" requiredMessage="Informar o título."/>
 			<br/>
 		    <p:outputLabel for="descricao" value="Descrição:" styleClass="fieldTitle" />
-			<p:inputText id="descricao" value="#{resultadoEsperadoBean.resultadoEsperado.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
+			<p:inputText size="100" id="descricao" value="#{resultadoEsperadoBean.resultadoEsperado.descricao}" styleClass="value" required="true" requiredMessage="Informar a descrição."/>
 			<br/>
 		    <p:outputLabel for="areaCompetencia" value="Área de competência:" styleClass="fieldTitle"/>
 			<p:selectOneMenu value="#{resultadoEsperadoBean.areaCompetencia}" id="areaCompetencia" styleClass="field" required="true" requiredMessage="Informar a área de competência." effect="fade" converter="areaCompetenciaConverter">

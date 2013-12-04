@@ -36,10 +36,10 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="nome" value="Nome:" styleClass="fieldTitle" />
-			<p:inputText id="nome" value="#{organizacaoSolicitanteBean.nome}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
+			<p:inputText size="50" id="nome" value="#{organizacaoSolicitanteBean.nome}" styleClass="value" required="true" requiredMessage="Informar a pergunta-chave."/>
 			<br/>
 		    <p:outputLabel for="cnpj" value="CNPJ:" styleClass="fieldTitle" />
-			<p:inputText id="cnpj" value="#{organizacaoSolicitanteBean.cnpj}" styleClass="value" required="true" requiredMessage="Informar o cnpj."/>
+			<p:inputText maxlength="11" size="15" id="cnpj" value="#{organizacaoSolicitanteBean.cnpj}" styleClass="value" required="true" requiredMessage="Informar o cnpj."/>
 			<br/>
 			<br/>
 			<br/>

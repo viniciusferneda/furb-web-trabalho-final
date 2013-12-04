@@ -39,6 +39,7 @@ public class ResultadoEsperadoBean {
 	
 	public void limpar() {
 		resultadoEsperado = new ResultadoEsperadoEntity();
+		areaCompetencia = new AreaCompetenciaEntity();
 	}
 	
 	public ApplicationContextBean getApplicationContext() {

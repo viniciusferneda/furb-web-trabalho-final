@@ -36,18 +36,19 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="avaliador" value="Avaliador:" styleClass="fieldTitle" />
-			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.avaliador}" id="avaliador" styleClass="field" required="true" requiredMessage="Informar o avaliador.">
+			<p:selectOneMenu value="#{avaliacaoBean.avaliador}" id="avaliador" styleClass="field" required="true" requiredMessage="Informar o avaliador." effect="fade" converter="avaliadorConverter">
 				<f:selectItem itemLabel="" />
-				<f:selectItems var="av" value="#{avaliacaoBean.allAvaliador}" itemLabel="#{av.nome}" itemValue="#{av.id}" />
+				<f:selectItems var="av" value="#{avaliacaoBean.allAvaliador}" itemLabel="#{av.nome}" itemValue="#{av}" />
 			</p:selectOneMenu>
 	        <br/>
 		    <p:outputLabel for="software" value="Software:" styleClass="fieldTitle" />
-			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.software}" id="software" styleClass="field" required="true" requiredMessage="Informar o software.">
+			<p:selectOneMenu value="#{avaliacaoBean.software}" id="software" styleClass="field" required="true" requiredMessage="Informar o software." effect="fade" converter="softwareConverter">
 				<f:selectItem itemLabel="" />
-				<f:selectItems var="sof" value="#{avaliacaoBean.allSoftware}" itemLabel="#{sof.nome}" itemValue="#{sof.id}" />
+				<f:selectItems var="sof" value="#{avaliacaoBean.allSoftware}" itemLabel="#{sof.nome}" itemValue="#{sof}" />
 			</p:selectOneMenu>
 			<br/>
-			<h:dataTable value="#{avaliacaoBean.lPerguntaResposta}" var="pergRes" editable="true">
+			<br/>
+			<h:dataTable border="1" value="#{avaliacaoBean.lPerguntaResposta}" var="pergRes" editable="true" id="pergResTable" style="width: 100%">
 				<f:facet name="header">
 					Questionário
 				</f:facet>
@@ -55,15 +56,18 @@
 					<f:facet name="header">
 						<h:outputText value="Área de competência" />
 					</f:facet>
-					<h:outputText value="#{car.resultadoEsperado.areaCompetencia.titulo}" />
+					<h:outputText value="#{pergRes.resultadoEsperado.areaCompetencia.titulo}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Resultado Esperado" />
 					</f:facet>
-					<h:outputText value="#{car.resultadoEsperado.titulo}" />
+					<h:outputText value="#{pergRes.resultadoEsperado.titulo}" />
 				</p:column>
-				<p:column headerText="Evidência">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Evidência" />
+					</f:facet>
 					<p:cellEditor>
 						<f:facet name="output">
 							<h:outputText value="#{pergRes.evidencia}" />
@@ -73,7 +77,10 @@
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
-				<p:column headerText="Pontuação">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Pontuação" />
+					</f:facet>
 					<p:cellEditor>
 						<f:facet name="output">
 							<h:outputText value="#{pergRes.escalaPontuacaoRE}" />

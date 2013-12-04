@@ -24,7 +24,6 @@ html,body {
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>CERTICS</title>
 	<link rel="stylesheet" href="#{request.contextPath}/themes/#{layoutBean.theme}/skin.css" />
-
 </h:head>
 
 <h:body>
@@ -32,11 +31,10 @@ html,body {
 		<p:layout style="min-width:1020px;max-width:1020px;min-height:800px">
 			<p:layoutUnit position="north" styleClass="ui-layout-unit-content" >
 				<p:layout style="min-height:450px;max-height:450px">
-					<p:layoutUnit position="west" size="60%" style="border: none;" >
-					<h1 class="mainTitle">CERTICS</h1>
+					<p:layoutUnit position="west" size="100%" style="border: none;" >
+						<p:graphicImage value="/resources/images/logo.png" />
 					</p:layoutUnit>
-					<p:layoutUnit position="center" size="40%" style="border: none;">
-						<!--<p:graphicImage height="280px" value="/resources/images/logo.png" />-->
+					<p:layoutUnit position="center" size="0%" style="border: none;">
 					</p:layoutUnit>
 				</p:layout>
 			</p:layoutUnit>
@@ -77,7 +75,6 @@ html,body {
 			<p:layoutUnit position="center" size="80%">
 				<ui:insert name="tpCenter">O que estiver aqui será substituido!</ui:insert>
 			</p:layoutUnit>
-
 		</p:layout>
 	</div>
 </h:body>

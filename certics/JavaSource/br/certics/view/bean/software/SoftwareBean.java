@@ -39,6 +39,7 @@ public class SoftwareBean {
 	
 	public void limpar() {
 		software = new SoftwareEntity();
+		organizacaoSolicitante = new OrganizacaoSolicitanteEntity();
 	}
 	
 	public ApplicationContextBean getApplicationContext() {

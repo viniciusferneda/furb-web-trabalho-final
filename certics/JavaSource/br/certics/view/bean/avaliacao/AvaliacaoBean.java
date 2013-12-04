@@ -26,6 +26,9 @@ import br.finf.control.facade.FacadeProvider;
 public class AvaliacaoBean {
 
 	private AvaliacaoEntity avaliacao = new AvaliacaoEntity();
+	private SoftwareEntity software = new SoftwareEntity();
+	private PessoaFisicaEntity avaliador = new PessoaFisicaEntity();
+	
 	private List<PerguntaRespostaEntity> lPerguntaResposta = new ArrayList<PerguntaRespostaEntity>();
 
 	@ManagedProperty(value="#{applicationContextBean}")
@@ -43,6 +46,8 @@ public class AvaliacaoBean {
 
 	public void salvar() {
 		AvaliacaoFacade facade = FacadeProvider.get().provide(AvaliacaoFacade.class);
+		avaliacao.setSoftware(software);
+		avaliacao.setAvaliador(avaliador);
 		avaliacao.setPerguntaResposta(lPerguntaResposta);
 		facade.salvar(avaliacao);
 		MessageUtils.addInfoMessage("Avaliação salva com sucesso!");
@@ -56,6 +61,8 @@ public class AvaliacaoBean {
 
 	public void limpar() {
 		avaliacao = new AvaliacaoEntity();
+		software = new SoftwareEntity();
+		avaliador = new PessoaFisicaEntity();
 		criaListaPerguntaResposta();
 	}
 
@@ -76,6 +83,38 @@ public class AvaliacaoBean {
 
 	public void setApplicationContext(ApplicationContextBean applicationContext) {
 		this.applicationContext = applicationContext;
+	}
+
+	public AvaliacaoEntity getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(AvaliacaoEntity avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	public List<PerguntaRespostaEntity> getlPerguntaResposta() {
+		return lPerguntaResposta;
+	}
+
+	public void setlPerguntaResposta(List<PerguntaRespostaEntity> lPerguntaResposta) {
+		this.lPerguntaResposta = lPerguntaResposta;
+	}
+
+	public SoftwareEntity getSoftware() {
+		return software;
+	}
+
+	public void setSoftware(SoftwareEntity software) {
+		this.software = software;
+	}
+
+	public PessoaFisicaEntity getAvaliador() {
+		return avaliador;
+	}
+
+	public void setAvaliador(PessoaFisicaEntity avaliador) {
+		this.avaliador = avaliador;
 	}
 	
 }

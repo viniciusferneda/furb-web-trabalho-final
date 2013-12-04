@@ -47,9 +47,24 @@ public class Software extends AbstractEntity{
 		return organizacaoSolicitante;
 	}
 
-	public void setOrganizacaoSolicitante(
-			OrganizacaoSolicitanteEntity organizacaoSolicitante) {
+	public void setOrganizacaoSolicitante(OrganizacaoSolicitanteEntity organizacaoSolicitante) {
 		this.organizacaoSolicitante = organizacaoSolicitante;
 	}
 	
+	public boolean equals(Object obj) {
+		if (this == obj)  
+            return true;  
+        if (obj == null)  
+            return false;  
+        if (!(obj instanceof Software))  
+            return false;  
+        Software other = (Software) obj;  
+        if (id == null){  
+            if (other.id != null)  
+                return false;  
+        } else if (!id.equals(other.id))  
+            return false;  
+        return true;
+	};
+
 }

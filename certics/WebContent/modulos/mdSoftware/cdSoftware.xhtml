@@ -36,7 +36,7 @@
 			<p:growl id="growls" showDetail="true" autoUpdate="true" closable="true" />
 	        <br/>
 		    <p:outputLabel for="nome" value="Nome:" styleClass="fieldTitle" />
-			<p:inputText id="nome" value="#{softwareBean.software.nome}" styleClass="value" required="true" requiredMessage="Informar o nome."/>
+			<p:inputText size="50" id="nome" value="#{softwareBean.software.nome}" styleClass="value" required="true" requiredMessage="Informar o nome."/>
 			<br/>
 		    <p:outputLabel for="organizacaoSolicitante" value="Organização solicitante:" styleClass="fieldTitle" />
 			<p:selectOneMenu value="#{softwareBean.organizacaoSolicitante}" id="organizacaoSolicitante" styleClass="field" required="true" requiredMessage="Informar a Organização solicitante." effect="fade" converter="organizacaoSolicitanteConverter">

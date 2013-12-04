@@ -62,4 +62,19 @@ public class PessoaFisica extends AbstractEntity{
 		this.sexo = sexo;
 	}
 
+	public boolean equals(Object obj) {
+		if (this == obj)  
+            return true;  
+        if (obj == null)  
+            return false;  
+        if (!(obj instanceof PessoaFisica))  
+            return false;  
+        PessoaFisica other = (PessoaFisica) obj;  
+        if (id == null){  
+            if (other.id != null)  
+                return false;  
+        } else if (!id.equals(other.id))  
+            return false;  
+        return true;
+	};
 }
