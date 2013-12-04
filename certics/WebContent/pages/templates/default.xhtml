@@ -43,7 +43,7 @@ html,body {
 				<h:form>
 					<p:menu>  
 			            <p:menuitem value="Inicial" outcome="/pages/index.xhtml" ajax="false" icon="ui-icon-home"/>  
-			            <p:menuitem value="Sair" outcome="/pages/modulos/mdUsuario/login.xhtml" actionListener="#{sessaoBean.logout()}" ajax="false" icon="ui-icon-close" rendered="#{sessaoBean.logged}" />  
+			            <p:menuitem value="Sair" actionListener="#{sessaoBean.logout()}" ajax="false" icon="ui-icon-close" rendered="#{sessaoBean.logged}" />  
 				        <p:submenu label="Usuário">  
 				            <p:menuitem value="Cadastrar-se" outcome="/pages/modulos/mdUsuario/cdUsuario.xhtml" ajax="false" icon="ui-icon-document" rendered="#{not sessaoBean.logged}" />  
 				            <p:menuitem value="Login" outcome="/pages/modulos/mdUsuario/login.xhtml" ajax="false" icon="ui-icon-grip-diagonal-se" rendered="#{not sessaoBean.logged}" />
