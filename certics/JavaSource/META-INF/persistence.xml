@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
-	<persistence-unit name="CerticsDS" transaction-type="RESOURCE_LOCAL">
-		<!-- jndi-name -->
-		<non-jta-data-source>java:jboss/datasources/MysqlDS</non-jta-data-source>
+	<persistence-unit name="CerticsDS" transaction-type="JTA">
+		
+		<non-jta-data-source>java:jboss/datasources/CerticsDS</non-jta-data-source>        		
 		
 		<class>br.certics.model.entity.AreaCompetenciaEntity</class>
 		<class>br.certics.model.entity.AvaliacaoEntity</class>
@@ -17,10 +17,10 @@
 		<class>br.certics.model.entity.UsuarioEntity</class>
 		
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.connection.charSet" value="UTF-8" />
-		</properties>
-	</persistence-unit>
+	      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+	      <property name="hibernate.show_sql" value="true" />
+	      <property name="hibernate.hbm2ddl.auto" value="create"/>
+	      <property name="hibernate.connection.charSet" value="UTF-8" />
+	    </properties>
+    </persistence-unit>
 </persistence>
