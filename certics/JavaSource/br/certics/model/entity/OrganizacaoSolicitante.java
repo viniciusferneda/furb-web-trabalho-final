@@ -17,7 +17,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class OrganizacaoSolicitante extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "OSO_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "OSO_ID", strategy = GenerationType.AUTO)
 	@Column(name="OSO_ID", nullable=false)
 	private Long id;
 	

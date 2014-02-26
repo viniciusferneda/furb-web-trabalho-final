@@ -17,7 +17,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class AreaCompetencia extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "ACO_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "ACO_ID", strategy = GenerationType.AUTO)
 	@Column(name="ACO_ID", nullable=false)
 	private Long id;
 	

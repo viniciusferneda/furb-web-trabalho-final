@@ -16,7 +16,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class Software extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "SOF_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "SOF_ID", strategy = GenerationType.AUTO)
 	@Column(name="SOF_ID", nullable=false)
 	private Long id;
 	

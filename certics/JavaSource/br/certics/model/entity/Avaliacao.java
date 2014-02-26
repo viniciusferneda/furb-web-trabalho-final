@@ -22,7 +22,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class Avaliacao extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "AVA_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "AVA_ID", strategy = GenerationType.AUTO)
 	@Column(name="AVA_ID", nullable=false)
 	private Long id;
 	

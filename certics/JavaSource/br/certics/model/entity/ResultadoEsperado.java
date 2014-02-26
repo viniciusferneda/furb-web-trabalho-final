@@ -19,7 +19,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class ResultadoEsperado extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator = "REP_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "REP_ID", strategy = GenerationType.AUTO)
 	@Column(name="REP_ID", nullable=false)
 	private Long id;
 	

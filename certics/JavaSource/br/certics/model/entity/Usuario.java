@@ -19,7 +19,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class Usuario extends AbstractEntity {
 
 	@Id
-	@GeneratedValue(generator = "USR_ID", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "USR_ID", strategy = GenerationType.AUTO)
 	@Column(name = "USR_ID", nullable=false)
 	private Long id;
 

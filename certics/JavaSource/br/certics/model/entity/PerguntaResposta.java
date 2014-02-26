@@ -19,7 +19,7 @@ import br.finf.dao.entity.AbstractEntity;
 public class PerguntaResposta extends AbstractEntity{
 
 	@Id
-	@GeneratedValue(generator="PRE_ID", strategy=GenerationType.IDENTITY)
+	@GeneratedValue(generator="PRE_ID", strategy=GenerationType.AUTO)
 	@Column(name="PRE_ID", nullable=false)
 	private Long id;
 	
